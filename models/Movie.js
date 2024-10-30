@@ -7,6 +7,10 @@ class Movie {
         this.rating = rating;
         this.release_date = release_date;
         this.duration = duration;
+
+        const timestamp = new Date().getTime();
+        const random = Math.floor(Math.random() * 1000);
+        this.id = timestamp + "" + random.toString().padStart(3, '0');
     }
 }
 
