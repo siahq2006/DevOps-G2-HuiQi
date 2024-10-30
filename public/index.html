@@ -1,12 +1,74 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
 
 <head>
-    <title>DVOPS - Resource Management Web App</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home Screen</title>
+    <link rel="stylesheet" href="./css/styles.css">
+    <style>
+        /* Add some basic styling for the movie grid */
+        .movie-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            /* Space between items */
+            margin-top: 20px;
+        }
+
+        .movie-item {
+            text-align: center;
+            /* Center align text */
+            width: 150px;
+            /* Adjust width as necessary */
+        }
+
+        .movie-item img {
+            width: 100%;
+            /* Make images responsive */
+            height: auto;
+            /* Maintain aspect ratio */
+        }
+    </style>
 </head>
 
 <body>
-    Welcome to my Resource Management Web Application. In this application, users
-    will get to manage resources.
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="logo">MyMovieApp</div>
+        <div class="nav-icons">
+            <span class="icon">🏠</span> <!-- Home icon -->
+            <span class="icon">👤</span> <!-- Profile icon -->
+        </div>
+    </nav>
+
+    <!-- Main Content Section -->
+    <main>
+        <!-- Title and Buttons -->
+        <section class="header">
+            <h1>Movies</h1>
+            <div class="buttons">
+                <button class="genre-btn">Add Genre</button>
+                <button class="movie-btn" onclick="showAddMovieForm()">Add Movie</button>
+            </div>
+        </section>
+
+        <!-- Message Area -->
+        <div id="message"></div>
+
+        <!-- Movie List -->
+        <section id="movie-list" class="movie-list">
+            <div class="movie-grid" id="tableContent">
+                <!-- Movies will be dynamically populated here -->
+            </div>
+        </section>
+
+
+    </main>
+
+    <script>
+
+    </script>
 </body>
 
 </html>
