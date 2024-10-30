@@ -29,7 +29,7 @@ async function addMovie(req, res) {
         const duration = req.body.duration;
 
         // Basic validation
-        if (description.length < 10 || !genre || !movie_name) {
+        if (description.length < 10 || !genre || !movie_name || !poster_url || !rating || !release_date || !duration) {
             return res.status(500).json({ message: 'Validation error' });
         } else {
             // Create a new Movie instance
@@ -43,6 +43,8 @@ async function addMovie(req, res) {
         return res.status(500).json({ message: error.message });
     }
 }
+
+
 
 // Endpoint to fetch all movies from the JSON file
 async function viewMovies(req, res) {

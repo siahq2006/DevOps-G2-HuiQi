@@ -7,27 +7,144 @@
     <title>Home Screen</title>
     <link rel="stylesheet" href="./css/styles.css">
     <style>
-        /* Add some basic styling for the movie grid */
+        /* Basic styling for the page */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            color: #333;
+        }
+
+        /* Navigation Bar */
+        .navbar {
+            width: 100%;
+            background-color: #333;
+            color: #fff;
+            padding: 10px 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 24px;
+            margin-left: 20px;
+        }
+
+        .nav-icons {
+            margin-right: 20px;
+        }
+
+        /* Movie grid styling */
         .movie-grid {
             display: flex;
             flex-wrap: wrap;
             gap: 20px;
-            /* Space between items */
             margin-top: 20px;
+            justify-content: center;
         }
 
         .movie-item {
             text-align: center;
-            /* Center align text */
             width: 150px;
-            /* Adjust width as necessary */
+            color: #333;
         }
 
         .movie-item img {
             width: 100%;
-            /* Make images responsive */
             height: auto;
-            /* Maintain aspect ratio */
+            border-radius: 8px;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Button Styling */
+        .buttons button {
+            margin: 10px;
+            padding: 10px 20px;
+            font-size: 16px;
+            color: #fff;
+            background-color: #333;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .buttons button:hover {
+            background-color: #555;
+        }
+
+        /* Modal background overlay */
+        .modal-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.6);
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+        }
+
+        /* Modal form styling */
+        .modal-content {
+            background-color: #fff;
+            width: 90%;
+            max-width: 450px;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.3);
+            text-align: left;
+        }
+
+        .modal-content h2 {
+            margin-top: 0;
+            color: #333;
+        }
+
+        .modal-content input,
+        .modal-content textarea {
+            width: calc(100% - 20px);
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 16px;
+        }
+
+        /* Modal Buttons */
+        .modal-content button {
+            padding: 10px 20px;
+            margin: 5px;
+            font-size: 16px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        .submit-btn {
+            background-color: #333;
+            color: #fff;
+        }
+
+        .submit-btn:hover {
+            background-color: #555;
+        }
+
+        .cancel-btn {
+            background-color: #f4f4f9;
+            color: #333;
+            border: 1px solid #ddd;
+        }
+
+        .cancel-btn:hover {
+            background-color: #ddd;
         }
     </style>
 </head>
@@ -63,35 +180,36 @@
             </div>
         </section>
 
-        <!-- Add Movie Form -->
-        <section id="add-movie-form" style="display:none;">
-            <h2>Add Movie</h2>
-            <input type="text" id="movie-name" placeholder="Movie Name" required>
-            <input type="text" id="poster-url" placeholder="Poster URL" required>
-            <textarea id="description" placeholder="Description" required></textarea>
-            <input type="text" id="genre" placeholder="Genre" required>
-            <input type="number" id="rating" placeholder="Rating (0-10)" required>
-            <input type="date" id="release-date" required>
-            <input type="number" id="duration" placeholder="Duration (mins)" required>
-            <button onclick="addMovie()">Submit</button>
-            <button onclick="hideAddMovieForm()">Cancel</button>
-        </section>
+        <!-- Add Movie Modal -->
+        <div id="add-movie-modal" class="modal-overlay">
+            <div class="modal-content">
+                <h2>Add Movie</h2>
+                <input type="text" id="movie-name" placeholder="Movie Name" required>
+                <input type="text" id="poster-url" placeholder="Poster URL" required>
+                <textarea id="description" placeholder="Description" required></textarea>
+                <input type="text" id="genre" placeholder="Genre" required>
+                <input type="number" id="rating" placeholder="Rating (0-10)" required>
+                <input type="date" id="release-date" required>
+                <input type="number" id="duration" placeholder="Duration (mins)" required>
+                <button class="submit-btn" onclick="addMovie()">Submit</button>
+                <button class="cancel-btn" onclick="hideAddMovieForm()">Cancel</button>
+            </div>
+        </div>
     </main>
 
     <script>
         function showAddMovieForm() {
-            document.getElementById('add-movie-form').style.display = 'block';
+            document.getElementById('add-movie-modal').style.display = 'flex';
         }
 
         function hideAddMovieForm() {
-            document.getElementById('add-movie-form').style.display = 'none';
+            document.getElementById('add-movie-modal').style.display = 'none';
         }
 
         function addMovie() {
             var response = "";
             var jsonData = {};
 
-            // Get movie details from the input fields
             jsonData.movie_name = document.getElementById("movie-name").value;
             jsonData.poster_url = document.getElementById("poster-url").value;
             jsonData.description = document.getElementById("description").value;
@@ -100,7 +218,6 @@
             jsonData.release_date = document.getElementById("release-date").value;
             jsonData.duration = document.getElementById("duration").value;
 
-            // Validate required fields
             if (jsonData.movie_name == "" || jsonData.poster_url == "" || jsonData.description == "" || jsonData.genre == "") {
                 document.getElementById("message").innerHTML = 'All fields are required!';
                 document.getElementById("message").setAttribute("class", "text-danger");
@@ -108,13 +225,11 @@
             }
 
             var request = new XMLHttpRequest();
-            request.open("POST", "/add-movie", true);
+            request.open("POST", "/addMovie", true);
             request.setRequestHeader('Content-Type', 'application/json');
 
             request.onload = function () {
                 response = JSON.parse(request.responseText);
-                console.log(response);
-
                 if (response.message === undefined) {
                     document.getElementById("message").innerHTML = 'Added Movie: ' + jsonData.movie_name + '!';
                     document.getElementById("message").setAttribute("class", "text-success");
@@ -149,7 +264,6 @@
 
                     document.getElementById('tableContent').innerHTML = html;
                 } else {
-                    console.error('Error fetching movies:', request.statusText);
                     document.getElementById("message").innerHTML = 'Failed to load movies. Please try again later.';
                     document.getElementById("message").setAttribute("class", "text-danger");
                 }
@@ -158,11 +272,7 @@
             request.send();
         }
 
-
-        // Call viewMovies on page load to display existing movies
-        window.onload = function () {
-            viewMovies();
-        };
+        viewMovies();
     </script>
 </body>
 
