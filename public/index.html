@@ -1,12 +1,169 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
 
 <head>
-    <title>DVOPS - Resource Management Web App</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home Screen</title>
+    <link rel="stylesheet" href="./css/styles.css">
+    <style>
+        /* Add some basic styling for the movie grid */
+        .movie-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            /* Space between items */
+            margin-top: 20px;
+        }
+
+        .movie-item {
+            text-align: center;
+            /* Center align text */
+            width: 150px;
+            /* Adjust width as necessary */
+        }
+
+        .movie-item img {
+            width: 100%;
+            /* Make images responsive */
+            height: auto;
+            /* Maintain aspect ratio */
+        }
+    </style>
 </head>
 
 <body>
-    Welcome to my Resource Management Web Application. In this application, users
-    will get to manage resources.
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="logo">WatchVault</div>
+        <div class="nav-icons">
+            <span class="icon">🏠</span> <!-- Home icon -->
+            <span class="icon">👤</span> <!-- Profile icon -->
+        </div>
+    </nav>
+
+    <!-- Main Content Section -->
+    <main>
+        <!-- Title and Buttons -->
+        <section class="header">
+            <h1>Movies</h1>
+            <div class="buttons">
+                <button class="genre-btn">Add Genre</button>
+                <button class="movie-btn" onclick="showAddMovieForm()">Add Movie</button>
+            </div>
+        </section>
+
+        <!-- Message Area -->
+        <div id="message"></div>
+
+        <!-- Movie List -->
+        <section id="movie-list" class="movie-list">
+            <div class="movie-grid" id="tableContent">
+                <!-- Movies will be dynamically populated here -->
+            </div>
+        </section>
+
+        <!-- Add Movie Form -->
+        <section id="add-movie-form" style="display:none;">
+            <h2>Add Movie</h2>
+            <input type="text" id="movie-name" placeholder="Movie Name" required>
+            <input type="text" id="poster-url" placeholder="Poster URL" required>
+            <textarea id="description" placeholder="Description" required></textarea>
+            <input type="text" id="genre" placeholder="Genre" required>
+            <input type="number" id="rating" placeholder="Rating (0-10)" required>
+            <input type="date" id="release-date" required>
+            <input type="number" id="duration" placeholder="Duration (mins)" required>
+            <button onclick="addMovie()">Submit</button>
+            <button onclick="hideAddMovieForm()">Cancel</button>
+        </section>
+    </main>
+
+    <script>
+        function showAddMovieForm() {
+            document.getElementById('add-movie-form').style.display = 'block';
+        }
+
+        function hideAddMovieForm() {
+            document.getElementById('add-movie-form').style.display = 'none';
+        }
+
+        function addMovie() {
+            var response = "";
+            var jsonData = {};
+
+            // Get movie details from the input fields
+            jsonData.movie_name = document.getElementById("movie-name").value;
+            jsonData.poster_url = document.getElementById("poster-url").value;
+            jsonData.description = document.getElementById("description").value;
+            jsonData.genre = document.getElementById("genre").value;
+            jsonData.rating = document.getElementById("rating").value;
+            jsonData.release_date = document.getElementById("release-date").value;
+            jsonData.duration = document.getElementById("duration").value;
+
+            // Validate required fields
+            if (jsonData.movie_name == "" || jsonData.poster_url == "" || jsonData.description == "" || jsonData.genre == "") {
+                document.getElementById("message").innerHTML = 'All fields are required!';
+                document.getElementById("message").setAttribute("class", "text-danger");
+                return;
+            }
+
+            var request = new XMLHttpRequest();
+            request.open("POST", "/add-movie", true);
+            request.setRequestHeader('Content-Type', 'application/json');
+
+            request.onload = function () {
+                response = JSON.parse(request.responseText);
+                console.log(response);
+
+                if (response.message === undefined) {
+                    document.getElementById("message").innerHTML = 'Added Movie: ' + jsonData.movie_name + '!';
+                    document.getElementById("message").setAttribute("class", "text-success");
+                    hideAddMovieForm();
+                    viewMovies(); // Refresh the movie list
+                } else {
+                    document.getElementById("message").innerHTML = 'Unable to add movie! ' + response.message;
+                    document.getElementById("message").setAttribute("class", "text-danger");
+                }
+            };
+
+            request.send(JSON.stringify(jsonData));
+        }
+
+        function viewMovies() {
+            var response = '';
+            var request = new XMLHttpRequest();
+            request.open('GET', '/viewMovies', true);
+            request.setRequestHeader('Content-Type', 'application/json');
+
+            request.onload = function () {
+                if (request.status >= 200 && request.status < 300) {
+                    response = JSON.parse(request.responseText);
+                    var html = '';
+
+                    for (var i = 0; i < response.length; i++) {
+                        html += '<div class="movie-item">' +
+                            '<img src="' + response[i].poster_url + '" alt="' + response[i].movie_name + '">' +
+                            '<div>' + response[i].movie_name + '</div>' +
+                            '</div>';
+                    }
+
+                    document.getElementById('tableContent').innerHTML = html;
+                } else {
+                    console.error('Error fetching movies:', request.statusText);
+                    document.getElementById("message").innerHTML = 'Failed to load movies. Please try again later.';
+                    document.getElementById("message").setAttribute("class", "text-danger");
+                }
+            };
+
+            request.send();
+        }
+
+
+        // Call viewMovies on page load to display existing movies
+        window.onload = function () {
+            viewMovies();
+        };
+    </script>
 </body>
 
 </html>
