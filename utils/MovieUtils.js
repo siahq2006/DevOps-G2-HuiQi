@@ -44,6 +44,17 @@ async function addMovie(req, res) {
     }
 }
 
+// Endpoint to fetch all movies from the JSON file
+async function viewMovies(req, res) {
+    try {
+        const allMovies = await readJSON('utils/movies.json');
+        return res.status(200).json(allMovies);
+    } catch (error) {
+        return res.status(500).json({ message: error.message });
+    }
+}
+
+
 module.exports = {
-    readJSON, writeJSON, addMovie
+    readJSON, writeJSON, addMovie, viewMovies
 }

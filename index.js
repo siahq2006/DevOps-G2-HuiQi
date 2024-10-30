@@ -9,8 +9,10 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 app.use(express.static("./public"));
 
-const { addMovie } = require('./utils/MovieUtils');
+const { addMovie, viewMovies } = require('./utils/MovieUtils');
 app.post('/addMovie', addMovie);
+app.get('/viewMovies', viewMovies);
+
 
 app.get('/', (req, res) => {
     res.sendFile(__dirname + "/public/" + startPage);
