@@ -12,7 +12,8 @@ app.use(bodyParser.json());
 
 app.use(express.static("./public"));
 
-const { addGenre } = require('./utils/genreUtil_Neston')
+const { addGenre, deleteGenre } = require('./utils/genreUtil_Neston')
+app.delete('/delete-genre/:id', deleteGenre);
 app.post('/add-genre', addGenre);
 
 app.get('/', (req, res) => {

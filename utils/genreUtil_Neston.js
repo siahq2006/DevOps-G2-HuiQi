@@ -24,6 +24,7 @@ async function addGenre(req, res) {
             return res.status(400).json({ message: 'Validation error: Name must be alphabetical.' });
         }
 
+        // if name is too long
         if (name.length > 10) {
             return res.status(400).json({ message: 'Validation error: Name must be less than 11 characters long.' });
         }
@@ -44,6 +45,31 @@ async function addGenre(req, res) {
     }
 }
 
+async function deleteGenre(req, res) {
+    try {
+        const id = req.params.id;
+        
+        const allGenres = await readJSON('utils/Genres_Neston.js');
+        var index = -1;
+        
+        for (var i = 0; i < allGenres.length; i++) {
+            var curcurrGenre = allGenres[i];
+            if (curcurrGenre.id == id)
+                index = i;
+        }
+        
+        if (index != -1) {
+            allGenres.splice(index, 1);
+            await fs.writeFile('utils/Genres_Neston.js', JSON.stringify(allGenres), 'utf8');
+            return res.status(201).json({ message: 'Genre deleted successfully!' });
+        } else {
+            return res.status(500).json({ message: 'Error occurred, unable to delete!' });
+        }
+    } catch (error) {
+        return res.status(500).json({ message: error.message });
+    }
+}
+
 module.exports = {
-    readJSON, writeJSON, addGenre
+    readJSON, writeJSON, addGenre, deleteGenre
 };
