@@ -64,7 +64,7 @@ async function deleteGenre(req, res) {
             return res.status(201).json({ message: 'Genre deleted successfully!' });
         } else {
             return res.status(500).json({ message: 'Error occurred, unable to delete!' });
-        }
+        }f
     } catch (error) {
         return res.status(500).json({ message: error.message });
     }
