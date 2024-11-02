@@ -6,36 +6,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home Screen</title>
     <link rel="stylesheet" href="./css/styles.css">
-    <style>
-        /* Add some basic styling for the movie grid */
-        .movie-grid {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 20px;
-            /* Space between items */
-            margin-top: 20px;
-        }
-
-        .movie-item {
-            text-align: center;
-            /* Center align text */
-            width: 150px;
-            /* Adjust width as necessary */
-        }
-
-        .movie-item img {
-            width: 100%;
-            /* Make images responsive */
-            height: auto;
-            /* Maintain aspect ratio */
-        }
-    </style>
 </head>
 
 <body>
     <!-- Navigation Bar -->
     <nav class="navbar">
-        <div class="logo">MyMovieApp</div>
+        <div class="logo">WatchVault</div>
         <div class="nav-icons">
             <span class="icon">🏠</span> <!-- Home icon -->
             <span class="icon">👤</span> <!-- Profile icon -->
@@ -63,12 +39,26 @@
             </div>
         </section>
 
-
+        <!-- Add Movie Modal -->
+        <div id="add-movie-modal" class="modal-overlay">
+            <div class="modal-content">
+                <h2>Add Movie</h2>
+                <input type="text" id="movie-name" placeholder="Movie Name" required>
+                <input type="text" id="poster-url" placeholder="Poster URL" required>
+                <textarea id="description" placeholder="Description" required></textarea>
+                <select id="genre-select" required>
+                    <option value="">Select Genre</option>
+                </select>
+                <input type="number" id="rating" placeholder="Rating (0-5)" required>
+                <input type="date" id="release-date" required>
+                <input type="number" id="duration" placeholder="Duration (mins)" required>
+                <button class="submit-btn" onclick="addMovie()">Submit</button>
+                <button class="cancel-btn" onclick="hideAddMovieForm()">Cancel</button>
+            </div>
+        </div>
     </main>
 
-    <script>
-
-    </script>
+    <script src="./js/script.js"></script>
 </body>
 
 </html>
