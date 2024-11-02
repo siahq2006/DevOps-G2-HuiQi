@@ -9,9 +9,10 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 app.use(express.static("./public"));
 
-const { addMovie, viewMovies } = require('./utils/MovieUtils');
+const { addMovie, viewMovies, getGenres } = require('./utils/MovieUtils');
 app.post('/addMovie', addMovie);
 app.get('/viewMovies', viewMovies);
+app.get('/getGenres', getGenres);
 
 
 app.get('/', (req, res) => {

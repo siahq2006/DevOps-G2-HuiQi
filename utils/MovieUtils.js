@@ -57,6 +57,16 @@ async function viewMovies(req, res) {
 }
 
 
+// Endpoint to fetch all Genres from the JSON file
+async function getGenres(req, res) {
+    try {
+        const allGenres = await readJSON('utils/genre.json');
+        return res.status(200).json(allGenres);
+    } catch (error) {
+        return res.status(500).json({ message: error.message });
+    }
+}
+
 module.exports = {
-    readJSON, writeJSON, addMovie, viewMovies
+    readJSON, writeJSON, addMovie, viewMovies, getGenres
 }
