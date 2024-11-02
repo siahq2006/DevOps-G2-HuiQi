@@ -30,6 +30,12 @@ body {
     margin-right: 20px;
 }
 
+.header {
+    margin-top: 20px;
+    margin-left: 15px;
+    position: sticky;
+}
+
 /* Movie grid styling */
 .movie-grid {
     display: flex;
