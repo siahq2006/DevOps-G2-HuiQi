@@ -6,6 +6,12 @@ var startPage = "index.html";
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 app.use(express.static("./public"));
+
+const { editMovie, viewMovies, deleteMovie } = require('./utils/Movieutil_jasper');
+app.get('/viewMovies', viewMovies);
+app.put ('/editMovie/:id', editMovie);
+app.delete('/deleteMovie/:id', deleteMovie);
+
 app.get('/', (req, res) => {
     res.sendFile(__dirname + "/public/" + startPage);
 })
