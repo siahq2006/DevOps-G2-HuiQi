@@ -9,5 +9,4 @@ class Movie {
         this.duration = duration;
     }
 }
-
 module.exports = { Movie };

@@ -7,10 +7,11 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 app.use(express.static("./public"));
 
-const { editMovie, viewMovies, deleteMovie } = require('./utils/Movieutil_jasper');
-app.get('/viewMovies', viewMovies);
-app.put ('/editMovie/:id', editMovie);
-app.delete('/deleteMovie/:id', deleteMovie);
+const { editMovie, viewMovies, deleteMovie, viewMovieById } = require('./utils/Movieutil_jasper');
+app.get('/viewMovies', viewMovies); // view all movies
+app.get('/viewMovies/:id', viewMovieById); // view movie by id
+app.put ('/editMovie/:id', editMovie); // edit movie by id
+app.delete('/deleteMovie/:id', deleteMovie); // delete movie by id
 
 app.get('/', (req, res) => {
     res.sendFile(__dirname + "/public/" + startPage);
