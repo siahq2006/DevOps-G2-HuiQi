@@ -108,5 +108,15 @@
         "release_date": "2017-08-10",
         "duration": "109",
         "id": "1730557485402977"
+    },
+    {
+        "movie_name": "The Greatest Showman",
+        "poster_url": "https://m.media-amazon.com/images/M/MV5BMjI1NDYzNzY2Ml5BMl5BanBnXkFtZTgwODQwODczNTM@._V1_.jpg",
+        "description": "The plot follows the story of young P.T Barnum and his rise from nothing to the world famous circus director. He faces a series of obstacles on his way to success with his lack of money, his family problems and the drama associated with fame.",
+        "genre": "3",
+        "rating": "4.8",
+        "release_date": "2017-12-20",
+        "duration": "105",
+        "id": "1730787701390369"
     }
 ]
