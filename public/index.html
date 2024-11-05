@@ -6,39 +6,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home Screen</title>
     <link rel="stylesheet" href="./css/styles.css">
-    <style>
-        /* Add some basic styling for the movie grid */
-        .movie-grid {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 20px;
-            /* Space between items */
-            margin-top: 20px;
-        }
-
-        .movie-item {
-            text-align: center;
-            /* Center align text */
-            width: 150px;
-            /* Adjust width as necessary */
-        }
-
-        .movie-item img {
-            width: 100%;
-            /* Make images responsive */
-            height: auto;
-            /* Maintain aspect ratio */
-        }
-    </style>
+    <script src="./js/script_Neston.js"></script>
 </head>
 
 <body>
     <!-- Navigation Bar -->
     <nav class="navbar">
-        <div class="logo">MyMovieApp</div>
+        <div class="logo">WatchVault</div>
         <div class="nav-icons">
-            <span class="icon">🏠</span> <!-- Home icon -->
-            <span class="icon">👤</span> <!-- Profile icon -->
+            <img src="./images/icons/home.png" alt="Home Icon" class="home-icon">
+            <img src="./images/icons/user.png" alt="User Icon" class="user-icon">
         </div>
     </nav>
 
@@ -48,7 +25,7 @@
         <section class="header">
             <h1>Movies</h1>
             <div class="buttons">
-                <button class="genre-btn">Add Genre</button>
+                <button class="genre-btn" onclick="showAddGenreForm()">Add Genre</button>
                 <button class="movie-btn" onclick="showAddMovieForm()">Add Movie</button>
             </div>
         </section>
@@ -63,6 +40,27 @@
             </div>
         </section>
 
+        <!-- Genre List -->
+        <div id="addGenreModal" class="modal" style="display: none;">
+            <div class="modal-content">
+                <span class="close" onclick="closeModal()">&times;</span>
+                
+                <!-- Modal Heading -->
+                <h2>Add Genre</h2>
+
+                <!-- Top Part: Add Genre -->
+                <div class="add-genre-section">
+                    <input type="text" id="genreInput" placeholder="Enter Genre Name">
+                    <button onclick="addGenre()">Add</button>
+                </div>
+                
+                <!-- Bottom Part: Scrollable List of Genres -->
+                <div class="genre-list" id="genreList">
+                    <!-- List of genres with trashcan icon for each item will appear here -->
+                </div>
+            </div>
+        </div>
+        
 
     </main>
 

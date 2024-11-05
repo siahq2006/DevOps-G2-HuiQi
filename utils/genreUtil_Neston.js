@@ -15,61 +15,68 @@ async function writeJSON(object, filename) {
         return allObjects;
     } catch (err) { console.error(err); throw err; }
 }
+
+async function getGenres(req, res) {
+    try {
+        const allResources = await readJSON('utils/Genres_Neston.js');
+        return res.status(201).json(allResources);
+    } catch (error) {
+        return res.status(500).json({ message: error.message });
+    }
+}
+
 async function addGenre(req, res) {
     try {
         const name = req.body.name;
 
         // Validation: Check if 'name' contains only alphabetical characters and has a minimum length
-        if (!/^[A-Za-z]+$/.test(name) ) {
-            return res.status(400).json({ message: 'Validation error: Name must be alphabetical.' });
+        if (!name || !/^[A-Za-z]+$/.test(name)) {
+            return res.status(400).json({ success: false, message: 'Name must be alphabetical.' });
         }
 
         // if name is too long
         if (name.length > 10) {
-            return res.status(400).json({ message: 'Validation error: Name must be less than 11 characters long.' });
+            return res.status(400).json({ success: false, message: 'Name must be less than 11 characters long.' });
         }
 
-        //if name already exists
+        // if name already exists
         const allGenres = await readJSON('utils/Genres_Neston.js');
-        const found = allGenres.find(genre => genre.name === name);
-        if (found) {
-            return res.status(400).json({ message: 'Validation error: Name already exists.' });
+        if (Array.isArray(allGenres) && allGenres.find(genre => genre.name === name)) {
+            return res.status(400).json({ success: false, message: 'Name already exists.' });
         }
 
         const newGenre = new Genre(name);
         const updatedGenre = await writeJSON(newGenre, 'utils/Genres_Neston.js');
         
-        return res.status(201).json(newGenre);
+        return res.status(201).json({ success: true, genre: newGenre });
     } catch (error) {
-        return res.status(500).json({ message: error.message });
+        return res.status(500).json({ success: false, message: error.message });
     }
 }
 
 async function deleteGenre(req, res) {
     try {
         const id = req.params.id;
-        
         const allGenres = await readJSON('utils/Genres_Neston.js');
-        var index = -1;
         
-        for (var i = 0; i < allGenres.length; i++) {
-            var curcurrGenre = allGenres[i];
-            if (curcurrGenre.id == id)
-                index = i;
-        }
+        // Find index of the genre to delete
+        const index = allGenres.findIndex(genre => genre.id === id);
         
-        if (index != -1) {
+        if (index !== -1) {
+            // Remove the genre at the found index
             allGenres.splice(index, 1);
+            
+            // Write the updated list back to the file
             await fs.writeFile('utils/Genres_Neston.js', JSON.stringify(allGenres), 'utf8');
-            return res.status(201).json({ message: 'Genre deleted successfully!' });
+            return res.status(200).json({ success: true, message: 'Genre deleted successfully!' });
         } else {
-            return res.status(500).json({ message: 'Error occurred, unable to delete!' });
+            return res.status(404).json({ success: false, message: 'Genre not found!' });
         }
     } catch (error) {
-        return res.status(500).json({ message: error.message });
+        return res.status(500).json({ success: false, message: error.message });
     }
 }
 
 module.exports = {
-    readJSON, writeJSON, addGenre, deleteGenre
+    readJSON, writeJSON, addGenre, deleteGenre, getGenres
 };

@@ -12,9 +12,10 @@ app.use(bodyParser.json());
 
 app.use(express.static("./public"));
 
-const { addGenre, deleteGenre } = require('./utils/genreUtil_Neston')
+const { addGenre, deleteGenre, getGenres } = require('./utils/genreUtil_Neston')
 app.delete('/delete-genre/:id', deleteGenre);
 app.post('/add-genre', addGenre);
+app.get('/get-genres', getGenres);
 
 app.get('/', (req, res) => {
     res.sendFile(__dirname + "/public/" + startPage);
