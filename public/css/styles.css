@@ -13,24 +13,34 @@ body {
 /* Navigation Bar */
 .navbar {
     width: 100%;
+    max-width: 100%;
     background-color: #7e7e7e;
     color: #fff;
-    padding: 10px 40px 10px 20px;
+    padding: 15px 15px;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    overflow: hidden;
 }
 
+/* this is for the logo */
+* {
+    box-sizing: border-box;
+}
+
+/* Styling for the logo */
 .logo {
     font-size: 24px;
-    margin-left: 50px;
+    margin-left: 25px;
 }
 
+/* Styling for the navigation icons */
 .nav-icons {
     display: flex;
     gap: 20px;
 }
 
+/* Styling for the navigation icons */
 .home-icon,
 .user-icon {
     width: 24px;
@@ -38,10 +48,11 @@ body {
     filter: greyscale(100%);
 }
 
-/* Header */
+/* Styling for the navigation icons */
 .header {
     margin-top: 20px;
     margin-left: 15px;
+    position: sticky;
 }
 
 /* Container for Movie Update */
@@ -112,9 +123,75 @@ textarea {
     transition: background-color 0.3s;
 }
 
+/* Button Hover Effect */
 .buttons button:hover {
     background-color: #555;
 }
+
+/* Basic styling for the modal */
+.genre-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Modal Content Styling */
+.genre-modal-content {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 5px;
+    width: 300px;
+}
+
+/* Modal Header Styling */
+.genre-modal-content h2 {
+    font-size: 1.2em;
+    margin: 0;
+    padding-bottom: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+/* Close Button Styling */
+.genre-close {
+    float: right;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+/* Add Genre Section Styling */
+.add-genre-section {
+    margin-bottom: 20px;
+}
+
+/* Scrollable Genre List */
+.genre-list {
+    max-height: 150px;
+    overflow-y: auto;
+    border-top: 1px solid #ccc;
+    padding-top: 10px;
+}
+
+/* Styling for genre list items */
+.genre-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 5px 0;
+}
+
+/* Styling for genre list items */
+.genre-item img {
+    cursor: pointer;
+    width: 16px;
+    height: 16px;
 
 
 /* Button Styling */
