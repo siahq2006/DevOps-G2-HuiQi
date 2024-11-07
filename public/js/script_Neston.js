@@ -1,7 +1,7 @@
 // Show Genre Modal
 function showAddGenreForm() {
     document.getElementById("addGenreModal").style.display = "flex"; // This code will display the modal when the button is clicked
-    loadGenres();  // Fetch existing genres on modal open
+    loadGenres_neston();  // Fetch existing genres on modal open
 }
 
 // Close Genre Modal
@@ -10,7 +10,7 @@ function closeModal() {
 }
 
 // Load and display existing genres with delete option
-function loadGenres() {
+function loadGenres_neston() {
     fetch('/get-genres')  // Fetch genres from server
         .then(response => response.json()) // Parse response as JSON
         .then(data => { // Process the data
