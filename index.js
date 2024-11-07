@@ -6,6 +6,14 @@ var startPage = "index.html";
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 app.use(express.static("./public"));
+
+const { editMovie, viewMovies, deleteMovie, viewMovieById, loadGenres } = require('./utils/Movieutil_jasper');
+app.get('/loadGenres', loadGenres); // view all genres
+app.get('/viewMovies', viewMovies); // view all movies
+app.get('/viewMovies/:id', viewMovieById); // view movie by id
+app.put ('/editMovie/:id', editMovie); // edit movie by id
+app.delete('/deleteMovie/:id', deleteMovie); // delete movie by id
+
 app.get('/', (req, res) => {
     res.sendFile(__dirname + "/public/" + startPage);
 })
