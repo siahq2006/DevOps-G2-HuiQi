@@ -1,7 +1,7 @@
-const { Movie } = require('../models/Movie_jasper.js');
-const fs = require('fs').promises;
+const { Movie } = require('../models/Movie_jasper.js'); // Import the Movie class
+const fs = require('fs').promises; // Import the promises version of the fs module
 
-async function readJSON(filename) {
+async function readJSON(filename) { // Function to read JSON file
     try {
         const data = await fs.readFile(filename, 'utf8');
         return JSON.parse(data);
@@ -11,7 +11,7 @@ async function readJSON(filename) {
     }
 }
 
-async function writeJSON(object, filename) {
+async function writeJSON(object, filename) { // Function to write JSON file
     try {
         await fs.writeFile(filename, JSON.stringify(object, null, 2), 'utf8');
         return object;
@@ -21,7 +21,7 @@ async function writeJSON(object, filename) {
     }
 }
 
-async function loadGenres(req, res) {
+async function loadGenres(req, res) { // Function to load genres
     try {
 
         const genres = await readJSON('utils/genre.json');
@@ -32,7 +32,7 @@ async function loadGenres(req, res) {
 }
 
 
-async function viewMovies(req, res) {
+async function viewMovies(req, res) { // Function to view all movies
     try {
         const allMovies = await readJSON('utils/Movie_jasper.js');
         return res.status(200).json(allMovies);
@@ -41,7 +41,7 @@ async function viewMovies(req, res) {
     }
 }
 
-async function viewMovieById(req, res) {
+async function viewMovieById(req, res) { // Function to view movie by id
     try {
         const id = req.params.id;
         const allMovies = await readJSON('utils/Movie_jasper.js');
@@ -57,7 +57,7 @@ async function viewMovieById(req, res) {
     }
 }
 
-async function editMovie(req, res) {
+async function editMovie(req, res) { // Function to edit movie by id
     try {
         const id = req.params.id;
         const { movie_name, poster_url, description, genre, rating, release_date, duration } = req.body;
@@ -95,7 +95,7 @@ async function editMovie(req, res) {
     }
 }
 
-async function deleteMovie(req, res) {
+async function deleteMovie(req, res) { // Function to delete movie by id
     try {
         const id = req.params.id;
         const allMovies = await readJSON('utils/Movie_jasper.js');

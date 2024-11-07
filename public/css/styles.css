@@ -38,11 +38,121 @@ body {
     filter: greyscale(100%);
 }
 
-
+/* Header */
 .header {
     margin-top: 20px;
     margin-left: 15px;
-    position: sticky;
+}
+
+/* Container for Movie Update */
+.container {
+    width: 90%;
+    max-width: 1400px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Movie details styling */
+.movie-details {
+    display: flex;
+    gap: 20px;
+}
+
+.poster-container {
+    flex: 1;
+    text-align: center;
+}
+
+.poster {
+    max-width: 100%;
+    border-radius: 8px;
+}
+
+.details-container {
+    flex: 2;
+}
+
+/* Form styling */
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+label {
+    font-weight: bold;
+}
+
+input[type="text"],
+input[type="number"],
+input[type="date"],
+textarea,
+select {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+textarea {
+    resize: vertical;
+}
+/*add button styling*/
+.buttons button {
+    margin: 10px;
+    padding: 10px 20px;
+    font-size: 16px;
+    color: #fff;
+    background-color: #7e7e7e;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.buttons button:hover {
+    background-color: #555;
+}
+
+
+/* Button Styling */
+.update-button {
+    padding: 10px 20px;
+    font-size: 16px;
+    color: #fff;
+    background-color: #7e7e7e;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.update-button:hover {
+    background-color: #555;
+}
+
+.delete-button {
+    background-color: red;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    cursor: pointer;
+    font-size: 16px;
+    margin-top: 10px;
+    transition: background-color 0.3s;
+}
+
+.delete-button:hover {
+    background-color: darkred;
+}
+
+/* Error Message Styling */
+.error-message {
+    color: red;
+    font-size: 12px;
+    margin-top: 5px;
 }
 
 /* Movie grid styling */
@@ -62,180 +172,14 @@ body {
 
 .movie-item img {
     width: 150px;
-    /* Set a fixed width */
     height: 225px;
-    /* Set a fixed height to maintain aspect ratio */
     border-radius: 8px;
     object-fit: cover;
-    /* Ensures images fill the defined size without distortion */
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
-}
-
-
-/* Button Styling */
-.buttons button {
-    margin: 10px;
-    padding: 10px 20px;
-    font-size: 16px;
-    color: #fff;
-    background-color: #7e7e7e;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    transition: background-color 0.3s;
-}
-
-.buttons button:hover {
-    background-color: #555;
-}
-
-
-/* Basic styling for the page */
-body {
-    font-family: Arial, sans-serif;
-    background-color: #f4f4f9;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    color: #333;
-}
-
-/* Navigation Bar */
-.navbar {
-    width: 100%;
-    background-color: #7e7e7e;
-    color: #fff;
-    padding: 10px 40px 10px 20px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.logo {
-    font-size: 24px;
-    margin-left: 50px;
-}
-
-.nav-icons {
-    display: flex;
-    gap: 20px;
-}
-
-.home-icon,
-.user-icon {
-    width: 24px;
-    height: 24px;
-    filter: greyscale(100%);
-}
-
-/* Header */
-.header {
-    margin-top: 20px;
-    margin-left: 15px;
-}
-
-/* Container for Movie Update */
-.container {
-    width: 90%; /* Increased width to 90% */
-    max-width: 1400px; /* Set a maximum width for large screens */
-    margin: 20px auto; /* Centers the container */
-    padding: 20px;
-    background-color: #fff; /* White background for contrast */
-    border-radius: 8px;
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
-}
-
-/* Movie details styling */
-.movie-details {
-    display: flex; /* Aligns poster and details side by side */
-    gap: 20px; /* Spacing between poster and form */
-}
-
-.poster-container {
-    flex: 1; /* Allows poster to take available space */
-    text-align: center;
-}
-
-.poster {
-    max-width: 100%; /* Responsive image */
-    border-radius: 8px;
-}
-
-.details-container {
-    flex: 2; /* Allows details to take more space */
-}
-
-/* Form styling */
-form {
-    display: flex;
-    flex-direction: column; /* Aligns labels and inputs vertically */
-    gap: 15px; /* Spacing between form elements */
-}
-
-label {
-    font-weight: bold; /* Bold labels for emphasis */
-}
-
-input[type="text"],
-input[type="number"],
-input[type="date"],
-textarea,
-select {
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-}
-
-textarea {
-    resize: vertical; /* Allows vertical resizing */
-}
-
-/* Button Styling */
-.update-button {
-    padding: 10px 20px;
-    font-size: 16px;
-    color: #fff;
-    background-color: #7e7e7e;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    transition: background-color 0.3s;
-}
-
-.update-button:hover {
-    background-color: #555;
 }
 
 /* Message Area */
 .message {
     margin-top: 10px;
-    color: green; /* Change color as needed for success messages */
+    color: green;
 }
-
-.delete-button {
-    background-color: red;
-    color: white;
-    border: none;
-    padding: 10px 15px;
-    cursor: pointer;
-    font-size: 16px;
-    margin-top: 10px;
-    transition: background-color 0.3s;
-}
-
-.delete-button:hover {
-    background-color: darkred;
-}
-
-.error-message {
-    color: red;
-    font-size: 12px;
-    margin-top: 5px;
-}
-
-
-
-
- 

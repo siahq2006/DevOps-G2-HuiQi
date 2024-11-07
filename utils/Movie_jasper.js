@@ -108,15 +108,5 @@
     "release_date": "2017-08-10",
     "duration": "109",
     "id": "1730557485402977"
-  },
-  {
-    "movie_name": "The Greatest Showman",
-    "poster_url": "https://upload.wikimedia.org/wikipedia/en/1/10/The_Greatest_Showman_poster.png",
-    "description": "The plot follows the story of young P.T Barnum and his rise from nothing to the world famous circus director. He faces a series of obstacles on his way to success with his lack of money, his family problems and the drama associated with fame.",
-    "genre": "Comedy",
-    "rating": "4.8",
-    "release_date": "2017-12-20",
-    "duration": "105",
-    "id": "1730787701390369"
   }
 ]

@@ -1,4 +1,4 @@
-var express = require('express');
+var express = require('express'); 
 var bodyParser = require("body-parser");
 var app = express();
 const PORT = process.env.PORT || 5050
@@ -7,7 +7,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 app.use(express.static("./public"));
 
-const { editMovie, viewMovies, deleteMovie, viewMovieById, loadGenres } = require('./utils/Movieutil_jasper');
+const { editMovie, viewMovies, deleteMovie, viewMovieById, loadGenres } = require('./utils/Movieutil_jasper'); // Importing functions from Movieutil_jasper.js
 app.get('/loadGenres', loadGenres); // view all genres
 app.get('/viewMovies', viewMovies); // view all movies
 app.get('/viewMovies/:id', viewMovieById); // view movie by id

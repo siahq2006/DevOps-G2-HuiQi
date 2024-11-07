@@ -1,4 +1,4 @@
-class Movie {
+class Movie { // Class to create movie object
     constructor(movie_name, poster_url, description, genre, rating, release_date, duration) {
         this.movie_name = movie_name;
         this.poster_url = poster_url;
