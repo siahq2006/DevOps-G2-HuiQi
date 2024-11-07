@@ -11,7 +11,7 @@ function viewMovies() {
 
             for (var i = 0; i < response.length; i++) {
                 html += '<div class="movie-item">' +
-                    '<a href="update-movie.html?id=' + response[i].id + '">' + // Redirect to movie detail page with movie ID
+                    '<a href="update-movie.html?id=' + response[i].id + '">' + 
                     '<img src="' + response[i].poster_url + '" alt="' + response[i].movie_name + '">' +
                     '</a>' +
                     '<div>' + response[i].movie_name + '</div>' +
@@ -45,8 +45,6 @@ function loadMovieForUpdate(movieId) {
             document.getElementById('rating').value = movie.rating;
             document.getElementById('release-date').value = movie.release_date;
             document.getElementById('duration').value = movie.duration;
-
-            // Set the movie poster
             document.getElementById('poster-img').src = movie.poster_url;
         } else {
             console.error('Error fetching movie details:', request.statusText);
@@ -71,7 +69,6 @@ function updateMovie() {
         duration: document.getElementById('duration').value
     };
 
-    // Send updated movie details to the server
     var request = new XMLHttpRequest();
     request.open('PUT', '/editMovie/' + movieId, true);
     request.setRequestHeader('Content-Type', 'application/json');
@@ -79,7 +76,7 @@ function updateMovie() {
     request.onload = function () {
         if (request.status >= 200 && request.status < 300) {
             alert('Movie updated successfully!');
-            window.location.href = 'index.html'; // Redirect back to the movie list
+            window.location.href = 'index.html';
         } else {
             console.error('Error updating movie:', request.statusText);
             document.getElementById("message").innerHTML = 'Failed to update movie. Please try again later.';
@@ -121,22 +118,6 @@ function loadMovieDetails() {
     request.send();
 }
 
-// Call viewMovies on page load to display existing movies or load movie details
-window.onload = function () {
-    if (document.getElementById('tableContent')) {
-        viewMovies(); // Display movies on home page
-    } else if (document.getElementById('movie-details')) {
-        loadMovieDetails(); // Load movie details for the detail page
-    } else {
-        const params = new URLSearchParams(window.location.search);
-        const movieId = params.get('id');
-
-        if (movieId) {
-            loadMovieForUpdate(movieId); // Load movie details for editing
-        }
-    }
-};
-
 // Function to delete a movie
 function deleteMovie() {
     const movieId = new URLSearchParams(window.location.search).get('id');
@@ -153,7 +134,7 @@ function deleteMovie() {
     request.onload = function () {
         if (request.status >= 200 && request.status < 300) {
             alert('Movie deleted successfully!');
-            window.location.href = 'index.html'; // Redirect back to the movie list
+            window.location.href = 'index.html';
         } else {
             console.error('Error deleting movie:', request.statusText);
             document.getElementById("message").innerHTML = 'Failed to delete movie. Please try again later.';
@@ -166,7 +147,7 @@ function deleteMovie() {
 // Function to confirm deletion of a movie
 function confirmDelete() {
     if (confirm("Are you sure you want to delete this movie? This action cannot be undone.")) {
-        deleteMovie(); // Call the deleteMovie function if confirmed
+        deleteMovie();
     }
 }
 
@@ -185,7 +166,7 @@ function validateForm(event) {
         { id: 'duration', errorId: 'duration-error', message: 'Duration is required' }
     ];
 
-    fields.forEach(field => { // Loop through each field to check for empty values
+    fields.forEach(field => {
         const input = document.getElementById(field.id);
         const errorElement = document.getElementById(field.errorId);
         if (!input.value) {
@@ -197,7 +178,49 @@ function validateForm(event) {
     });
 
     if (isValid) {
-        updateMovie(); // Call the function to update the movie if all fields are valid
+        updateMovie();
     }
 }
 
+// Function to load genres dynamically from the server
+function loadGenres() {
+    var request = new XMLHttpRequest();
+    request.open('GET', '/loadGenres', true);
+    request.setRequestHeader('Content-Type', 'application/json');
+
+    request.onload = function () {
+        if (request.status >= 200 && request.status < 300) {
+            const genres = JSON.parse(request.responseText);
+            const genreSelect = document.getElementById('genre-select');
+            genreSelect.innerHTML = '<option value="">Select Genre</option>';
+
+            genres.forEach(genre => {
+                const option = document.createElement('option');
+                option.value = genre.id;
+                option.textContent = genre.name;
+                genreSelect.appendChild(option);
+            });
+        } else {
+            console.error('Error fetching genres:', request.statusText);
+        }
+    };
+
+    request.send();
+}
+
+// Initialize functions on page load
+window.onload = function () {
+    if (document.getElementById('tableContent')) {
+        viewMovies();
+    } else if (document.getElementById('movie-details')) {
+        loadMovieDetails();
+    } else {
+        const params = new URLSearchParams(window.location.search);
+        const movieId = params.get('id');
+
+        if (movieId) {
+            loadMovieForUpdate(movieId);
+        }
+        loadGenres(); // Load genres when the form page loads
+    }
+};

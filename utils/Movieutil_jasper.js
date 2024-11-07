@@ -21,6 +21,17 @@ async function writeJSON(object, filename) {
     }
 }
 
+async function loadGenres(req, res) {
+    try {
+
+        const genres = await readJSON('utils/genre.json');
+        return res.status(200).json(genres);
+    } catch (error) {
+        return res.status(500).json({ message: error.message });
+    }
+}
+
+
 async function viewMovies(req, res) {
     try {
         const allMovies = await readJSON('utils/Movie_jasper.js');
@@ -103,4 +114,4 @@ async function deleteMovie(req, res) {
     }
 }
 
-module.exports = { readJSON, writeJSON, viewMovies, viewMovieById, editMovie, deleteMovie };
+module.exports = { readJSON, writeJSON, viewMovies, viewMovieById, editMovie, deleteMovie, loadGenres   };
