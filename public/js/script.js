@@ -10,20 +10,40 @@ function addMovie() {
     var response = "";
     var jsonData = {};
 
-    jsonData.movie_name = document.getElementById("movie-name").value;
-    jsonData.poster_url = document.getElementById("poster-url").value;
-    jsonData.description = document.getElementById("description").value;
-    jsonData.genre = document.getElementById("genre-select").value;
-    jsonData.rating = document.getElementById("rating").value;
-    jsonData.release_date = document.getElementById("release-date").value;
-    jsonData.duration = document.getElementById("duration").value;
+    // Get form values
+    jsonData.movie_name = document.getElementById("movie-name").value.trim();
+    jsonData.poster_url = document.getElementById("poster-url").value.trim();
+    jsonData.description = document.getElementById("description").value.trim();
+    jsonData.genre = document.getElementById("genre-select").value.trim();
+    jsonData.rating = document.getElementById("rating").value.trim();
+    jsonData.release_date = document.getElementById("release-date").value.trim();
+    jsonData.duration = document.getElementById("duration").value.trim();
 
-    if (jsonData.movie_name == "" || jsonData.poster_url == "" || jsonData.description == "" || jsonData.genre == "") {
+    // Clear previous error styles and message
+    document.getElementById("message").innerHTML = '';
+    document.getElementById("message").removeAttribute("class");
+    var fields = ["movie-name", "poster-url", "description", "genre-select", "rating", "release-date", "duration"];
+    fields.forEach(field => {
+        document.getElementById(field).style.border = ""; // Remove any previous red border
+    });
+
+    // Validate required fields and highlight if empty
+    let allFieldsFilled = true;
+    fields.forEach(field => {
+        if (jsonData[field.replace('-', '_')] === "") {  // Adjusts jsonData keys to match field IDs
+            document.getElementById(field).style.border = "2px solid red";  // Highlight empty field
+            allFieldsFilled = false;
+        }
+    });
+
+    if (!allFieldsFilled) {
+        alert("Please fill out all required fields!"); // Notification for missing fields
         document.getElementById("message").innerHTML = 'All fields are required!';
         document.getElementById("message").setAttribute("class", "text-danger");
         return;
     }
 
+    // AJAX request to add movie if all fields are filled
     var request = new XMLHttpRequest();
     request.open("POST", "/addMovie", true);
     request.setRequestHeader('Content-Type', 'application/json');
@@ -31,6 +51,7 @@ function addMovie() {
     request.onload = function () {
         response = JSON.parse(request.responseText);
         if (response.message === undefined) {
+            alert("Movie added successfully!"); // Notification for successful addition
             document.getElementById("message").innerHTML = 'Added Movie: ' + jsonData.movie_name + '!';
             document.getElementById("message").setAttribute("class", "text-success");
             hideAddMovieForm();
@@ -43,6 +64,7 @@ function addMovie() {
 
     request.send(JSON.stringify(jsonData));
 }
+
 
 function viewMovies() {
     var response = '';
