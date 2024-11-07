@@ -23,20 +23,24 @@ body {
     overflow: hidden;
 }
 
+/* this is for the logo */
 * {
     box-sizing: border-box;
 }
 
+/* Styling for the logo */
 .logo {
     font-size: 24px;
     margin-left: 25px;
 }
 
+/* Styling for the navigation icons */
 .nav-icons {
     display: flex;
     gap: 20px;
 }
 
+/* Styling for the navigation icons */
 .home-icon,
 .user-icon {
     width: 24px;
@@ -44,6 +48,7 @@ body {
     filter: greyscale(100%);
 }
 
+/* Styling for the navigation icons */
 .header {
     margin-top: 20px;
     margin-left: 15px;
@@ -63,6 +68,7 @@ body {
     transition: background-color 0.3s;
 }
 
+/* Button Hover Effect */
 .buttons button:hover {
     background-color: #555;
 }
@@ -80,6 +86,7 @@ body {
     align-items: center;
 }
 
+/* Modal Content Styling */
 .modal-content {
     background-color: #fff;
     padding: 20px;
@@ -87,6 +94,7 @@ body {
     width: 300px;
 }
 
+/* Modal Header Styling */
 .modal-content h2 {
     font-size: 1.2em;
     margin: 0;
@@ -96,6 +104,7 @@ body {
     justify-content: space-between;
 }
 
+/* Close Button Styling */
 .close {
     float: right;
     font-size: 20px;
@@ -123,6 +132,7 @@ body {
     padding: 5px 0;
 }
 
+/* Styling for genre list items */
 .genre-item img {
     cursor: pointer;
     width: 16px;

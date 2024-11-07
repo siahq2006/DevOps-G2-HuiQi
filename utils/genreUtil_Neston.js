@@ -18,7 +18,7 @@ async function writeJSON(object, filename) {
 
 async function getGenres(req, res) {
     try {
-        const allResources = await readJSON('utils/Genres_Neston.js');
+        const allResources = await readJSON('utils/genre.json');
         return res.status(201).json(allResources);
     } catch (error) {
         return res.status(500).json({ message: error.message });
@@ -40,13 +40,13 @@ async function addGenre(req, res) {
         }
 
         // if name already exists
-        const allGenres = await readJSON('utils/Genres_Neston.js');
+        const allGenres = await readJSON('utils/genre.json');
         if (Array.isArray(allGenres) && allGenres.find(genre => genre.name === name)) {
             return res.status(400).json({ success: false, message: 'Name already exists.' });
         }
 
         const newGenre = new Genre(name);
-        const updatedGenre = await writeJSON(newGenre, 'utils/Genres_Neston.js');
+        const updatedGenre = await writeJSON(newGenre, 'utils/genre.json');
         
         return res.status(201).json({ success: true, genre: newGenre });
     } catch (error) {
@@ -57,7 +57,7 @@ async function addGenre(req, res) {
 async function deleteGenre(req, res) {
     try {
         const id = req.params.id;
-        const allGenres = await readJSON('utils/Genres_Neston.js');
+        const allGenres = await readJSON('utils/genre.json');
         
         // Find index of the genre to delete
         const index = allGenres.findIndex(genre => genre.id === id);
@@ -67,7 +67,7 @@ async function deleteGenre(req, res) {
             allGenres.splice(index, 1);
             
             // Write the updated list back to the file
-            await fs.writeFile('utils/Genres_Neston.js', JSON.stringify(allGenres), 'utf8');
+            await fs.writeFile('utils/genre.json', JSON.stringify(allGenres), 'utf8');
             return res.status(200).json({ success: true, message: 'Genre deleted successfully!' });
         } else {
             return res.status(404).json({ success: false, message: 'Genre not found!' });
