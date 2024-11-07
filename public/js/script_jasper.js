@@ -169,3 +169,35 @@ function confirmDelete() {
         deleteMovie(); // Call the deleteMovie function if confirmed
     }
 }
+
+// Function to validate the form before updating the movie
+function validateForm(event) {
+    event.preventDefault();
+    let isValid = true;
+
+    const fields = [
+        { id: 'movie-name', errorId: 'movie-name-error', message: 'Movie Name is required' },
+        { id: 'poster-url-input', errorId: 'poster-url-error', message: 'Poster URL is required' },
+        { id: 'description', errorId: 'description-error', message: 'Description is required' },
+        { id: 'genre-select', errorId: 'genre-error', message: 'Please select a genre' },
+        { id: 'rating', errorId: 'rating-error', message: 'Rating is required' },
+        { id: 'release-date', errorId: 'release-date-error', message: 'Release date is required' },
+        { id: 'duration', errorId: 'duration-error', message: 'Duration is required' }
+    ];
+
+    fields.forEach(field => { // Loop through each field to check for empty values
+        const input = document.getElementById(field.id);
+        const errorElement = document.getElementById(field.errorId);
+        if (!input.value) {
+            errorElement.textContent = field.message;
+            isValid = false;
+        } else {
+            errorElement.textContent = '';
+        }
+    });
+
+    if (isValid) {
+        updateMovie(); // Call the function to update the movie if all fields are valid
+    }
+}
+

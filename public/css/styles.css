@@ -229,6 +229,12 @@ textarea {
     background-color: darkred;
 }
 
+.error-message {
+    color: red;
+    font-size: 12px;
+    margin-top: 5px;
+}
+
 
 
 
