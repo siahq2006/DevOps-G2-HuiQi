@@ -30,7 +30,7 @@ viewMovies();
 
 
 
-async function loadGenres() {
+async function loadGenresKai() {
     const genreSelect = document.getElementById("genre-select");
     genreSelect.innerHTML = '<option value="all">All</option>'; // Default option to show all movies
 
@@ -107,6 +107,6 @@ async function loadMoviesByGenre() {
 
 // Load genres and set up event listener for genre selection
 window.onload = function () {
-    loadGenres(); // Load genres on page load
+    loadGenresKai(); // Load genres on page load
     document.getElementById('genre-select').addEventListener('change', loadMoviesByGenre); // Trigger movie load on genre change
 };
