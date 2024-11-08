@@ -1,7 +1,7 @@
-function viewMovies() {
+function viewMoviesKai() {
     var response = '';
     var request = new XMLHttpRequest();
-    request.open('GET', '/viewMovies', true);
+    request.open('GET', '/viewMoviesKai', true);
     request.setRequestHeader('Content-Type', 'application/json');
 
     request.onload = function () {
@@ -26,7 +26,7 @@ function viewMovies() {
     request.send();
 }
 
-viewMovies();
+viewMoviesKai();
 
 
 
@@ -35,7 +35,7 @@ async function loadGenresKai() {
     genreSelect.innerHTML = '<option value="all">All</option>'; // Default option to show all movies
 
     try {
-        const response = await fetch('/getGenres');
+        const response = await fetch('/getGenresKai');
         if (!response.ok) {
             throw new Error(`Failed to load genres: ${response.status} ${response.statusText}`);
         }
@@ -60,7 +60,7 @@ async function loadGenresKai() {
 async function loadMoviesByGenre() {
     const id = document.getElementById('genre-select').value;
 
-    let url = '/viewMovies'; // Default endpoint to fetch all movies
+    let url = '/viewMoviesKai'; // Default endpoint to fetch all movies
     if (id !== 'all') {
         url = `/viewMovieByGenre/${id}`; // Endpoint to fetch movies by genre
     }

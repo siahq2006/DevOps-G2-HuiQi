@@ -7,7 +7,7 @@ async function readJSON(filename) {
     } catch (err) { console.error(err); throw err;}
 }
 
-async function viewMovies(req, res) {
+async function viewMoviesKai(req, res) {
     try {
         const allMovies = await readJSON('utils/movies.json');
         return res.status(201).json(allMovies);
@@ -16,7 +16,7 @@ async function viewMovies(req, res) {
     }
 }
 
-async function getGenres(req, res) {
+async function getGenresKai(req, res) {
     try {
         const allGenres = await readJSON('utils/genre.json');
         return res.status(200).json(allGenres);
@@ -61,5 +61,5 @@ async function viewMovieByGenre(req, res) {
 }
 
 module.exports = {
-    readJSON, viewMovies, getGenres, viewMovieByGenre
+    readJSON, viewMoviesKai, getGenresKai, viewMovieByGenre
 }

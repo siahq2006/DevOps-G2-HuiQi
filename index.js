@@ -9,9 +9,9 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 app.use(express.static("./public"));
 
-const {viewMovies, getGenres, viewMovieByGenre} = require('./utils/MovieUtil');
-app.get('/viewMovies', viewMovies);
-app.get('/getGenres', getGenres);
+const {viewMoviesKai, getGenresKai, viewMovieByGenre} = require('./utils/MovieUtil_Kai');
+app.get('/viewMoviesKai', viewMoviesKai);
+app.get('/getGenresKai', getGenresKai);
 app.get('/viewMovieByGenre/:id', viewMovieByGenre);
 
 app.get('/', (req, res) => {
