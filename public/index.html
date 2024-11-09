@@ -19,46 +19,44 @@
     </nav>
 
     <!-- Main Content Section -->
-    <main>
-        <!-- Title and Buttons -->
-        <section class="header">
-            <h1>Movies</h1>
+    <main class="main-container">
+        <!-- Header and Buttons Row -->
+        <div class="header-row">
+            <h1 class="header-title">Movies</h1>
             <div class="buttons">
                 <button class="genre-btn">Add Genre</button>
                 <button class="movie-btn" onclick="showAddMovieForm()">Add Movie</button>
             </div>
-        </section>
+        </div>
 
-        <!-- Message Area -->
-        <div id="message"></div>
-
-        <!-- Movie List -->
+        <!-- Movie List Section -->
         <section id="movie-list" class="movie-list">
+            <div id="message"></div> <!-- Message Area for Notifications -->
             <div class="movie-grid" id="tableContent">
                 <!-- Movies will be dynamically populated here -->
             </div>
         </section>
-
-        <!-- Add Movie Modal -->
-        <div id="add-movie-modal" class="modal-overlay">
-            <div class="modal-content">
-                <h2>Add Movie</h2>
-                <input type="text" id="movie-name" placeholder="Movie Name" required>
-                <input type="text" id="poster-url" placeholder="Poster URL" required>
-                <textarea id="description" placeholder="Description" required></textarea>
-                <select id="genre-select" required>
-                    <option value="">Select Genre</option>
-                </select>
-                <input type="number" id="rating" placeholder="Rating (0-5)" required>
-                <input type="date" id="release-date" required>
-                <input type="number" id="duration" placeholder="Duration (mins)" required>
-                <button class="submit-btn" onclick="addMovie()">Submit</button>
-                <button class="cancel-btn" onclick="hideAddMovieForm()">Cancel</button>
-            </div>
-        </div>
     </main>
 
-    <script src="./js/script.js"></script>
+    <!-- Add Movie Modal -->
+    <div id="add-movie-modal" class="modal-overlay">
+        <div class="modal-content">
+            <h2>Add Movie</h2>
+            <input type="text" id="movie-name" placeholder="Movie Name" required>
+            <input type="text" id="poster-url" placeholder="Poster URL" required>
+            <textarea id="description" placeholder="Description" required></textarea>
+            <select id="genre-select" required>
+                <option value="">Select Genre</option>
+            </select>
+            <input type="number" id="rating" placeholder="Rating (0-5)" required>
+            <input type="date" id="release-date" required>
+            <input type="number" id="duration" placeholder="Duration (mins)" required>
+            <button class="submit-btn" onclick="addMovie()">Submit</button>
+            <button class="cancel-btn" onclick="hideAddMovieForm()">Cancel</button>
+        </div>
+    </div>
+
+    <script src="./js/script_HuiQi.js"></script>
 </body>
 
 </html>

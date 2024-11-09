@@ -4,23 +4,18 @@ body {
     background-color: #f4f4f9;
     margin: 0;
     padding: 0;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
     color: #333;
 }
 
 /* Navigation Bar */
 .navbar {
     width: 100%;
-    max-width: 100%;
     background-color: #7e7e7e;
     color: #fff;
-    padding: 15px 15px;
+    padding: 15px;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    overflow: hidden;
 }
 
 * {
@@ -41,48 +36,38 @@ body {
 .user-icon {
     width: 24px;
     height: 24px;
-    filter: greyscale(100%);
+    filter: grayscale(100%);
 }
 
-
-.header {
-    margin-top: 20px;
-    margin-left: 15px;
-    position: sticky;
+/* Main container layout */
+.main-container {
+    width: 100%;
+    padding: 20px;
 }
 
-/* Movie grid styling */
-.movie-grid {
+/* Header and Buttons Row */
+.header-row {
     display: flex;
-    flex-wrap: wrap;
-    gap: 20px;
-    margin-top: 20px;
-    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    /* Space between header title and buttons */
+    margin-bottom: 20px;
 }
 
-.movie-item {
-    text-align: center;
-    width: 150px;
+.header-title {
+    font-size: 24px;
     color: #333;
+    margin: 0;
 }
 
-.movie-item img {
-    width: 150px;
-    /* Set a fixed width */
-    height: 225px;
-    /* Set a fixed height to maintain aspect ratio */
-    border-radius: 8px;
-    object-fit: cover;
-    /* Ensures images fill the defined size without distortion */
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+.buttons {
+    display: flex;
+    gap: 10px;
 }
 
-
-/* Button Styling */
 .buttons button {
-    margin: 10px;
-    padding: 10px 20px;
-    font-size: 16px;
+    padding: 5px 15px;
+    font-size: 14px;
     color: #fff;
     background-color: #7e7e7e;
     border: none;
@@ -94,6 +79,58 @@ body {
 .buttons button:hover {
     background-color: #555;
 }
+
+/* .movie-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: flex-start;
+}
+
+
+.movie-item {
+    text-align: center;
+    width: 150px;
+    color: #333;
+}
+
+.movie-item img {
+    width: 150px;
+    height: 225px;
+    border-radius: 8px;
+    object-fit: cover;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+} */
+
+.movie-grid {
+    display: grid;
+    grid-template-columns: repeat(9, 1fr);
+    /* This will create 9 equal columns */
+    gap: 20px;
+    /* Space between movies */
+    justify-items: center;
+    /* Ensures that movies are centered in each grid cell */
+    margin-top: 20px;
+}
+
+.movie-item {
+    text-align: center;
+    width: 100%;
+    /* Ensures each movie item takes full width of the grid cell */
+    max-width: 150px;
+    /* Set a maximum width for each movie */
+    color: #333;
+}
+
+.movie-item img {
+    width: 100%;
+    /* Makes the image fill the grid item */
+    height: 225px;
+    border-radius: 8px;
+    object-fit: cover;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+}
+
 
 /* Modal background overlay */
 .modal-overlay {
@@ -126,7 +163,8 @@ body {
 }
 
 .modal-content input,
-.modal-content textarea {
+.modal-content textarea,
+.modal-content select {
     width: calc(100% - 20px);
     padding: 10px;
     margin-bottom: 10px;
@@ -135,19 +173,13 @@ body {
     font-size: 16px;
 }
 
-/* Modal Buttons */
-.modal-content button {
-    padding: 10px 20px;
-    margin: 5px;
-    font-size: 16px;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-}
-
 .submit-btn {
     background-color: #333;
     color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    padding: 10px 20px;
 }
 
 .submit-btn:hover {
@@ -158,38 +190,10 @@ body {
     background-color: #f4f4f9;
     color: #333;
     border: 1px solid #ddd;
+    padding: 10px 20px;
+    border-radius: 4px;
 }
 
 .cancel-btn:hover {
     background-color: #ddd;
-}
-
-/* Beautify the dropdown */
-#genre-select {
-    width: 100%;
-    padding: 10px;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-    background-color: #f9f9f9;
-    font-size: 16px;
-    color: #333;
-    cursor: pointer;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    appearance: none;
-    /* Remove default arrow */
-    background-image: url('data:image/svg+xml;charset=UTF-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="gray"><path d="M10 14l-5-5h10l-5 5z"/></svg>');
-    background-repeat: no-repeat;
-    background-position: right 10px center;
-    background-size: 15px;
-    margin-bottom: 15px;
-}
-
-#genre-select:hover {
-    background-color: #eaeaea;
-}
-
-#genre-select:focus {
-    outline: none;
-    border-color: #3a86ff;
-    box-shadow: 0 0 5px rgba(58, 134, 255, 0.5);
 }

@@ -1,25 +1,36 @@
+// Import the Movie model and fs.promises for file handling
 const { Movie } = require('../models/Movie');
 const fs = require('fs').promises;
 
+// Reads a JSON file and parses it into a JavaScript object
 async function readJSON(filename) {
     try {
-        const data = await fs.readFile(filename, 'utf8');
-        return JSON.parse(data);
-    } catch (err) { console.error(err); throw err; }
+        const data = await fs.readFile(filename, 'utf8');   // Read the file as UTF-8
+        return JSON.parse(data);     // Parse the file content to JSON and return it
+    } catch (err) { console.error(err); throw err; }    // If there's an error, log it and throw it for handling
 }
 
+// Writes an object to a JSON file by appending it to existing data
 async function writeJSON(object, filename) {
     try {
+        // Read current contents of the file
         const allObjects = await readJSON(filename);
+
+        // Append the new object to the current list
         allObjects.push(object);
 
+        // Write the updated list back to the file in UTF-8 format
         await fs.writeFile(filename, JSON.stringify(allObjects), 'utf8');
-        return allObjects;
-    } catch (err) { console.error(err); throw err; }
+        return allObjects;    // Return the updated list of objects
+    } catch (err) { console.error(err); throw err; }       // Handle errors by logging and throwing
 }
 
+
+
+// Endpoint for adding a new movie
 async function addMovie(req, res) {
     try {
+        // Extract movie data from the request body
         const movie_name = req.body.movie_name;
         const poster_url = req.body.poster_url;
         const description = req.body.description;
@@ -67,6 +78,8 @@ async function getGenres(req, res) {
     }
 }
 
+
+// Export the functions to be used in routes
 module.exports = {
     readJSON, writeJSON, addMovie, viewMovies, getGenres
 }

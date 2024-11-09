@@ -10,7 +10,7 @@ class Movie {
 
         const timestamp = new Date().getTime();
         const random = Math.floor(Math.random() * 1000);
-        this.id = timestamp + "" + random.toString().padStart(3, '0');
+        this.id = timestamp + "" + random.toString().padStart(3, '0');      // Ensures random number is padded to 3 digits
     }
 }
 
