@@ -1,122 +1,142 @@
 [
-    {
-        "movie_name": "Black Widow",
-        "poster_url": "https://m.media-amazon.com/images/I/71xpPnyQOIL.AC_UF894,1000_QL80.jpg",
-        "description": "In Marvel Studios' action-packed spy thriller \"Black Widow,\" Natasha Romanoff aka Black Widow confronts the darker parts of her ledger when a dangerous conspiracy with ties to her past arises.",
-        "genre": "2",
-        "rating": "4.1",
-        "release_date": "2021-07-09",
-        "duration": "133",
-        "id": "1730272231217194"
-    },
-    {
-        "movie_name": "Captain America: Civil War",
-        "poster_url": "https://m.media-amazon.com/images/M/MV5BMjQ0MTgyNjAxMV5BMl5BanBnXkFtZTgwNjUzMDkyODE@.V1_FMjpg_UX1000.jpg",
-        "description": "Steve Rogers leads the newly formed team of Avengers in their continued efforts to safeguard humanity. But after another incident involving the Avengers results in collateral damage, political pressure mounts to install a system of accountability, headed by a governing body to oversee and direct the team.",
-        "genre": "2",
-        "rating": "4.6",
-        "release_date": "2016-04-21",
-        "duration": "148",
-        "id": "1730272364448559"
-    },
-    {
-        "movie_name": "Marley and Me",
-        "poster_url": "data:image/jpeg;base64,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",
-        "description": "Newlyweds John and Jenny Grogan (Owen Wilson, Jennifer Aniston) leave behind snowy Michigan and move to Florida, where they buy their first home and find jobs at competing newspapers. Soon afterward, the Grogans adopt Marley, an adorable yellow Labrador pup. But Marley soon grows up to be a mischievous handful.",
-        "genre": "3",
-        "rating": "4.6",
-        "release_date": "2008-12-25",
-        "duration": "115",
-        "id": "1730272454352104"
-    },
-    {
-        "movie_name": "The Conjuring",
-        "poster_url": "https://i.ebayimg.com/00/s/MTYwMFgxMDgw/z/7~oAAOSw-89ZTBuI/$_57.JPG?set_id=8800005007",
-        "description": "https://upload.wikimedia.org/wikipedia/en/8/8c/The_Conjuring_poster.jpg",
-        "genre": "1",
-        "rating": "4.6",
-        "release_date": "2013-08-08",
-        "duration": "112",
-        "id": "1730272563334669"
-    },
-    {
-        "movie_name": "Star Wars: Episode IX - The Rise of Skywalker",
-        "poster_url": "https://m.media-amazon.com/images/I/81oApl4ir9L.AC_UF1000,1000_QL80.jpg",
-        "description": "Set after The Last Jedi, The Rise of Skywalker follows Rey, Finn, and Poe Dameron as they lead the remnants of the Resistance in a final stand against Supreme Leader Kylo Ren and the First Order, who are allied by the resurrected Sith Lord, Emperor Palpatine.",
-        "genre": "4",
-        "rating": "3.3",
-        "release_date": "2019-12-19",
-        "duration": "142",
-        "id": "1730451402291717"
-    },
-    {
-        "movie_name": "Just for Meeting You",
-        "poster_url": "https://i.mydramalist.com/Z85pYO_4f.jpg",
-        "description": "Xu Nian Nian and Yang Yi met at the most beautiful age and experienced the most memorable moments of youth. It's also a period of their lives that will eventually be forgotten. When the two people who have never forgotten each other meet again, can they be brave enough to overcome all difficulties?",
-        "genre": "5",
-        "rating": "5",
-        "release_date": "2023-08-22",
-        "duration": "108",
-        "id": "1730531838145363"
-    },
-    {
-        "movie_name": "Pandora (판도라)",
-        "poster_url": "https://m.media-amazon.com/images/M/MV5BZjRkMjAxMjgtZTUwMC00MDI0LWI3YTYtYzVjZDFkMWQ1YTkyXkEyXkFqcGc@.V1.jpg",
-        "description": "An earthquake strikes the small town where Jae-Hyeok lives and causes explosions at the nuclear power plant. The situation quickly spirals out of control, leading the entire nation to panic. To prevent another nuclear disaster, Jae-Hyeok and his co-workers return to the nuclear power plant.",
-        "genre": "2",
-        "rating": "4.8",
-        "release_date": "2016-12-07",
-        "duration": "136",
-        "id": "1730534704658061"
-    },
-    {
-        "movie_name": "Jumanji: Welcome To The Jungle",
-        "poster_url": "https://m.media-amazon.com/images/M/MV5BZjI5MzdmODctYjA4NS00ZmMxLWJlOWUtOGVhMjA0OGMxMWYzXkEyXkFqcGc@.V1_FMjpg_UX1000.jpg",
-        "description": "Jumanji is about four American teenagers, who magically get sucked into a game and become the characters that they chose. By going on a quest, and overcoming challenges, the fantastic four have to work as a team to return to the real world.",
-        "genre": "2",
-        "rating": "4.6",
-        "release_date": "2017-12-21",
-        "duration": "119",
-        "id": "1730537025882335"
-    },
-    {
-        "movie_name": "Avengers: Infinity War",
-        "poster_url": "https://m.media-amazon.com/images/M/MV5BMjMxNjY2MDU1OV5BMl5BanBnXkFtZTgwNzY1MTUwNTM@.V1_FMjpg_UX1000.jpg",
-        "description": "Iron Man, Thor, the Hulk and the rest of the Avengers unite to battle their most powerful enemy yet -- the evil Thanos. On a mission to collect all six Infinity Stones, Thanos plans to use the artifacts to inflict his twisted will on reality.",
-        "genre": "2",
-        "rating": "4.7",
-        "release_date": "2018-04-26",
-        "duration": "149",
-        "id": "1730538566031477"
-    },
-    {
-        "movie_name": "A Dog's Journey",
-        "poster_url": "https://upload.wikimedia.org/wikipedia/en/d/d5/A_Dogs_Journey_Movie_Poster_Art.jpg",
-        "description": "Molly is reincarnated as a male English mastiff named Big Dog, who lives with a convenience store owner in Pennsylvania. One day, CJ visits the shop and is lovingly greeted by Big Dog. He mistakenly believes that CJ recognizes him, is heartbroken when she leaves without him, and spends the rest of his life missing her.",
-        "genre": "3",
-        "rating": "4.8",
-        "release_date": "2019-05-16",
-        "duration": "109",
-        "id": "1730555126190784"
-    },
-    {
-        "movie_name": "Annabelle: Creation",
-        "poster_url": "https://upload.wikimedia.org/wikipedia/en/0/08/Annabelle_Creation.jpg",
-        "description": "Twelve years after the tragic death of their little girl, a doll-maker and his wife welcome a nun and several girls from a shuttered orphanage into their home, where they become the target of the doll-maker's possessed creation, Annabelle.",
-        "genre": "1",
-        "rating": "4.3",
-        "release_date": "2017-08-10",
-        "duration": "109",
-        "id": "1730557485402977"
-    },
-    {
-        "movie_name": "The Greatest Showman",
-        "poster_url": "https://m.media-amazon.com/images/M/MV5BMjI1NDYzNzY2Ml5BMl5BanBnXkFtZTgwODQwODczNTM@.V1.jpg",
-        "description": "The plot follows the story of young P.T Barnum and his rise from nothing to the world famous circus director. He faces a series of obstacles on his way to success with his lack of money, his family problems and the drama associated with fame.",
-        "genre": "3",
-        "rating": "4.8",
-        "release_date": "2017-12-20",
-        "duration": "105",
-        "id": "1730787701390369"
-    }
+        {
+                "movie_name": "Black Widow",
+                "poster_url": "https://m.media-amazon.com/images/I/71xpPnyQOIL._AC_UF894,1000_QL80_.jpg",
+                "description": "In Marvel Studios' action-packed spy thriller \"Black Widow,\" Natasha Romanoff aka Black Widow confronts the darker parts of her ledger when a dangerous conspiracy with ties to her past arises.",
+                "genre": "2",
+                "rating": "4.1",
+                "release_date": "2021-07-09",
+                "duration": "133",
+                "id": "1730272231217194"
+        },
+        {
+                "movie_name": "Captain America: Civil War",
+                "poster_url": "https://m.media-amazon.com/images/M/MV5BMjQ0MTgyNjAxMV5BMl5BanBnXkFtZTgwNjUzMDkyODE@._V1_FMjpg_UX1000_.jpg",
+                "description": "Steve Rogers leads the newly formed team of Avengers in their continued efforts to safeguard humanity. But after another incident involving the Avengers results in collateral damage, political pressure mounts to install a system of accountability, headed by a governing body to oversee and direct the team.",
+                "genre": "2",
+                "rating": "4.6",
+                "release_date": "2016-04-21",
+                "duration": "148",
+                "id": "1730272364448559"
+        },
+        {
+                "movie_name": "Marley and Me",
+                "poster_url": "data:image/jpeg;base64,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",
+                "description": "Newlyweds John and Jenny Grogan (Owen Wilson, Jennifer Aniston) leave behind snowy Michigan and move to Florida, where they buy their first home and find jobs at competing newspapers. Soon afterward, the Grogans adopt Marley, an adorable yellow Labrador pup. But Marley soon grows up to be a mischievous handful.",
+                "genre": "3",
+                "rating": "4.6",
+                "release_date": "2008-12-25",
+                "duration": "115",
+                "id": "1730272454352104"
+        },
+        {
+                "movie_name": "The Conjuring",
+                "poster_url": "https://i.ebayimg.com/00/s/MTYwMFgxMDgw/z/7~oAAOSw-89ZTBuI/$_57.JPG?set_id=8800005007",
+                "description": "https://upload.wikimedia.org/wikipedia/en/8/8c/The_Conjuring_poster.jpg",
+                "genre": "1",
+                "rating": "4.6",
+                "release_date": "2013-08-08",
+                "duration": "112",
+                "id": "1730272563334669"
+        },
+        {
+                "movie_name": "Star Wars: Episode IX - The Rise of Skywalker",
+                "poster_url": "https://m.media-amazon.com/images/I/81oApl4ir9L._AC_UF1000,1000_QL80_.jpg",
+                "description": "Set after The Last Jedi, The Rise of Skywalker follows Rey, Finn, and Poe Dameron as they lead the remnants of the Resistance in a final stand against Supreme Leader Kylo Ren and the First Order, who are allied by the resurrected Sith Lord, Emperor Palpatine.",
+                "genre": "4",
+                "rating": "3.3",
+                "release_date": "2019-12-19",
+                "duration": "142",
+                "id": "1730451402291717"
+        },
+        {
+                "movie_name": "Just for Meeting You",
+                "poster_url": "https://i.mydramalist.com/Z85pYO_4f.jpg",
+                "description": "Xu Nian Nian and Yang Yi met at the most beautiful age and experienced the most memorable moments of youth. It's also a period of their lives that will eventually be forgotten. When the two people who have never forgotten each other meet again, can they be brave enough to overcome all difficulties?",
+                "genre": "5",
+                "rating": "5",
+                "release_date": "2023-08-22",
+                "duration": "108",
+                "id": "1730531838145363"
+        },
+        {
+                "movie_name": "Pandora (판도라)",
+                "poster_url": "https://m.media-amazon.com/images/M/MV5BZjRkMjAxMjgtZTUwMC00MDI0LWI3YTYtYzVjZDFkMWQ1YTkyXkEyXkFqcGc@._V1_.jpg",
+                "description": "An earthquake strikes the small town where Jae-Hyeok lives and causes explosions at the nuclear power plant. The situation quickly spirals out of control, leading the entire nation to panic. To prevent another nuclear disaster, Jae-Hyeok and his co-workers return to the nuclear power plant.",
+                "genre": "2",
+                "rating": "4.8",
+                "release_date": "2016-12-07",
+                "duration": "136",
+                "id": "1730534704658061"
+        },
+        {
+                "movie_name": "Jumanji: Welcome To The Jungle",
+                "poster_url": "https://m.media-amazon.com/images/M/MV5BZjI5MzdmODctYjA4NS00ZmMxLWJlOWUtOGVhMjA0OGMxMWYzXkEyXkFqcGc@._V1_FMjpg_UX1000_.jpg",
+                "description": "Jumanji is about four American teenagers, who magically get sucked into a game and become the characters that they chose. By going on a quest, and overcoming challenges, the fantastic four have to work as a team to return to the real world.",
+                "genre": "2",
+                "rating": "4.6",
+                "release_date": "2017-12-21",
+                "duration": "119",
+                "id": "1730537025882335"
+        },
+        {
+                "movie_name": "Avengers: Infinity War",
+                "poster_url": "https://m.media-amazon.com/images/M/MV5BMjMxNjY2MDU1OV5BMl5BanBnXkFtZTgwNzY1MTUwNTM@._V1_FMjpg_UX1000_.jpg",
+                "description": "Iron Man, Thor, the Hulk and the rest of the Avengers unite to battle their most powerful enemy yet -- the evil Thanos. On a mission to collect all six Infinity Stones, Thanos plans to use the artifacts to inflict his twisted will on reality.",
+                "genre": "2",
+                "rating": "4.7",
+                "release_date": "2018-04-26",
+                "duration": "149",
+                "id": "1730538566031477"
+        },
+        {
+                "movie_name": "A Dog's Journey",
+                "poster_url": "https://upload.wikimedia.org/wikipedia/en/d/d5/A_Dogs_Journey_Movie_Poster_Art.jpg",
+                "description": "Molly is reincarnated as a male English mastiff named Big Dog, who lives with a convenience store owner in Pennsylvania. One day, CJ visits the shop and is lovingly greeted by Big Dog. He mistakenly believes that CJ recognizes him, is heartbroken when she leaves without him, and spends the rest of his life missing her.",
+                "genre": "3",
+                "rating": "4.8",
+                "release_date": "2019-05-16",
+                "duration": "109",
+                "id": "1730555126190784"
+        },
+        {
+                "movie_name": "Annabelle: Creation",
+                "poster_url": "https://upload.wikimedia.org/wikipedia/en/0/08/Annabelle_Creation.jpg",
+                "description": "Twelve years after the tragic death of their little girl, a doll-maker and his wife welcome a nun and several girls from a shuttered orphanage into their home, where they become the target of the doll-maker's possessed creation, Annabelle.",
+                "genre": "1",
+                "rating": "4.3",
+                "release_date": "2017-08-10",
+                "duration": "109",
+                "id": "1730557485402977"
+        },
+        {
+                "movie_name": "The Greatest Showman",
+                "poster_url": "https://m.media-amazon.com/images/M/MV5BMjI1NDYzNzY2Ml5BMl5BanBnXkFtZTgwODQwODczNTM@._V1_.jpg",
+                "description": "The plot follows the story of young P.T Barnum and his rise from nothing to the world famous circus director. He faces a series of obstacles on his way to success with his lack of money, his family problems and the drama associated with fame.",
+                "genre": "3",
+                "rating": "4.8",
+                "release_date": "2017-12-20",
+                "duration": "105",
+                "id": "1730787701390369"
+        },
+        {
+                "movie_name": "Harry Potter and The Philosopher's Stone",
+                "poster_url": "https://www.rogerebert.com/wp-content/uploads/2024/03/Harry-Potter-And-The-Sorcerers-Stone.jpg",
+                "description": "Harry Potter, an eleven-year-old orphan, discovers that he is a wizard and is invited to study at Hogwarts. Even as he escapes a dreary life and enters a world of magic, he finds trouble awaiting him.",
+                "genre": "3",
+                "rating": "4.8",
+                "release_date": "2001-11-22",
+                "duration": "152",
+                "id": "1730987627966485"
+        },
+        {
+                "movie_name": "Harry Potter and The Chamber of Secrets",
+                "poster_url": "https://raisingchildren.net.au/__data/assets/image/0021/51447/harry-potter-and-the-chamber-of-secrets.jpg",
+                "description": "A house-elf warns Harry against returning to Hogwarts, but he decides to ignore it. When students and creatures at the school begin to get petrified, Harry finds himself surrounded in mystery.",
+                "genre": "3",
+                "rating": "4.7",
+                "release_date": "2002-11-15",
+                "duration": "161",
+                "id": "1730988125792164"
+        }
 ]

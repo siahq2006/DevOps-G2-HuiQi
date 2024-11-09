@@ -147,6 +147,7 @@ select {
 textarea {
     resize: vertical;
 }
+
 /*add button styling*/
 
 .buttons button {
@@ -286,4 +287,3 @@ textarea {
     margin-top: 10px;
     color: green;
 }
-

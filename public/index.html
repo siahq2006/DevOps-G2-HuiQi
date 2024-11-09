@@ -10,6 +10,7 @@
     <script src="./js/script_Neston.js"></script>
     <script src="./js/script_jasper.js"></script>
     <script src="./js/script_Kai.js"></script>
+    <script src="./js/script_HuiQi.js"></script>
 </head>
 
 <body>
@@ -23,56 +24,65 @@
     </nav>
 
     <!-- Main Content Section -->
-    <main>
-        <!-- Title -->
-        <section class="header">
-            <h1>Movies</h1>
+    <main class="main-container">
+        <!-- Header and Buttons Row -->
+        <div class="header-row">
+            <h1 class="header-title">Movies</h1>
             <div class="buttons">
-                <button class="genre-btn" onclick="showAddGenreForm()">Add Genre</button>
+                <button class="genre-btn">Add Genre</button>
                 <button class="movie-btn" onclick="showAddMovieForm()">Add Movie</button>
-                <select id="genre-select">
-                    <option value="">Select Genre</option>
-                </select>
             </div>
+        </div>
 
-        </section>
-
-        <!-- Message Area -->
-        <div id="message"></div>
-
-        <!-- Movie List -->
+        <!-- Movie List Section -->
         <section id="movie-list" class="movie-list">
+            <div id="message"></div> <!-- Message Area for Notifications -->
             <div class="movie-grid" id="tableContent">
                 <!-- Movies will be dynamically populated here -->
             </div>
         </section>
-
-
     </main>
 
-    
+    <!-- Add Movie Modal -->
+    <div id="add-movie-modal" class="modal-overlay">
+        <div class="modal-content">
+            <h2>Add Movie</h2>
+            <input type="text" id="movie-name" placeholder="Movie Name" required>
+            <input type="text" id="poster-url" placeholder="Poster URL" required>
+            <textarea id="description" placeholder="Description" required></textarea>
+            <select id="genre-select" required>
+                <option value="">Select Genre</option>
+            </select>
+            <input type="number" id="rating" placeholder="Rating (0-5)" required>
+            <input type="date" id="release-date" required>
+            <input type="number" id="duration" placeholder="Duration (mins)" required>
+            <button class="submit-btn" onclick="addMovie()">Submit</button>
+            <button class="cancel-btn" onclick="hideAddMovieForm()">Cancel</button>
+        </div>
+    </div>
 
-        <!-- Genre List -->
-        <div id="addGenreModal" class="genre-modal" style="display: none;"> <!-- Hidden by default -->
-            <div class="genre-modal-content"> <!-- Modal Content -->
-                <span class="genre-close" onclick="closeModal()">&times;</span> <!-- Close Button -->
-                
-                <!-- Modal Heading -->
-                <h2>Add Genre</h2>
+    <!-- Genre List -->
+    <div id="addGenreModal" class="genre-modal" style="display: none;"> <!-- Hidden by default -->
+        <div class="genre-modal-content"> <!-- Modal Content -->
+            <span class="genre-close" onclick="closeModal()">&times;</span> <!-- Close Button -->
 
-                <!-- Top Part: Add Genre -->
-                <div class="add-genre-section">
-                    <input type="text" id="genreInput" placeholder="Enter Genre Name"> <!-- Input Field -->
-                    <button onclick="addGenre()">Add</button> <!-- Add Button -->
-                </div>
-                
-                <!-- Bottom Part: Scrollable List of Genres -->
-                <div class="genre-list" id="genreList">
-                    <!-- List of genres with trashcan icon for each item will appear here -->
-                </div>
+            <!-- Modal Heading -->
+            <h2>Add Genre</h2>
+
+            <!-- Top Part: Add Genre -->
+            <div class="add-genre-section">
+                <input type="text" id="genreInput" placeholder="Enter Genre Name"> <!-- Input Field -->
+                <button onclick="addGenre()">Add</button> <!-- Add Button -->
+            </div>
+
+            <!-- Bottom Part: Scrollable List of Genres -->
+            <div class="genre-list" id="genreList">
+                <!-- List of genres with trashcan icon for each item will appear here -->
             </div>
         </div>
-    </main>
+    </div>
+
 
 </body>
+
 </html>
