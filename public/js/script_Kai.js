@@ -59,11 +59,14 @@ async function loadGenresKai() {
     }
 }
 
+// Load genres when the DOM is ready
+document.addEventListener('DOMContentLoaded', loadGenresKai);
+
 // Load genres and set up event listener for genre selection
-window.onload = function () {
-    loadGenresKai(); // Load genres on page load
-    document.getElementById('genre-select').addEventListener('change', loadMoviesByGenre); // Trigger movie load on genre change
-};
+// window.onload = function () {
+//     loadGenresKai(); // Load genres on page load
+//     document.getElementById('genre-select').addEventListener('change', loadMoviesByGenre); // Trigger movie load on genre change
+// };
 
 async function loadMoviesByGenre() {
     const id = document.getElementById('genre-select').value;
@@ -108,13 +111,3 @@ async function loadMoviesByGenre() {
         document.getElementById("message").innerText = 'Failed to load movies.';
     }
 }
-
-
-
-
-
-// Load genres and set up event listener for genre selection
-// window.onload = function () {
-//     loadGenresKai(); // Load genres on page load
-//     document.getElementById('genre-select').addEventListener('change', loadMoviesByGenre); // Trigger movie load on genre change
-// };
