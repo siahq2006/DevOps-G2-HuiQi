@@ -1,1 +1,32 @@
-[{"movie_name":"Harry Potter and The Philosopher's Stone","poster_url":"https://m.media-amazon.com/images/M/MV5BNTU1MzgyMDMtMzBlZS00YzczLThmYWEtMjU3YmFlOWEyMjE1XkEyXkFqcGc@._V1_FMjpg_UX1000_.jpg","description":"Harry Potter, an eleven-year-old orphan, discovers that he is a wizard and is invited to study at Hogwarts. Even as he escapes a dreary life and enters a world of magic, he finds trouble awaiting him.","genre":"1731138990158828","rating":"4.8","release_date":"2001-11-22","id":"1731142094356681"},{"movie_name":"Black Widow","poster_url":"https://m.media-amazon.com/images/M/MV5BZTMyZTA0ZTItYjY3Yi00ODNjLWExYTgtYzgxZTk0NTg0Y2FlXkEyXkFqcGc@._V1_FMjpg_UX1000_.jpg","description":"Natasha Romanoff, a member of the Avengers and a former KGB spy, is forced to confront her dark past when a conspiracy involving her old handler arises.","genre":"1731140764478050","rating":"4.1","release_date":"2021-07-09","id":"1731146101606623"}]
+[
+  {
+    "movie_name": "Harry Potter and The Philosopher's Stone",
+    "poster_url": "https://m.media-amazon.com/images/M/MV5BNTU1MzgyMDMtMzBlZS00YzczLThmYWEtMjU3YmFlOWEyMjE1XkEyXkFqcGc@._V1_FMjpg_UX1000_.jpg",
+    "description": "Harry Potter, an eleven-year-old orphan, discovers that he is a wizard and is invited to study at Hogwarts. Even as he escapes a dreary life and enters a world of magic, he finds trouble awaiting him.",
+    "genre": "1731138990158828",
+    "rating": "4.8",
+    "release_date": "2001-11-22",
+    "duration": "152",
+    "id": "1731142094356681"
+  },
+  {
+    "movie_name": "Black Widow",
+    "poster_url": "https://m.media-amazon.com/images/M/MV5BZTMyZTA0ZTItYjY3Yi00ODNjLWExYTgtYzgxZTk0NTg0Y2FlXkEyXkFqcGc@._V1_FMjpg_UX1000_.jpg",
+    "description": "Natasha Romanoff, a member of the Avengers and a former KGB spy, is forced to confront her dark past when a conspiracy involving her old handler arises.",
+    "genre": "1731140764478050",
+    "rating": "4.1",
+    "release_date": "2021-07-09",
+    "duration": "133",
+    "id": "1731146101606623"
+  },
+  {
+    "movie_name": "The Conjuring",
+    "poster_url": "https://cdn.movieguide.org/wp-content/uploads/2013/07/the-conjuring-768x1136.jpg",
+    "description": "In 1968, renowned demonologists Ed and Lorraine Warren investigate the Annabelle case, in which friends Debbie and Camilla have a possessed doll. They allowed the spirit, who claimed to be a seven-year-old girl named Annabelle Higgins, to possess the doll, but the hauntings became more disturbing.",
+    "genre": "1731140679188871",
+    "rating": "4.6",
+    "release_date": "2013-08-08",
+    "duration": "112",
+    "id": "1731163003722453"
+  }
+]
