@@ -36,6 +36,7 @@ function loadMovieForUpdate(movieId) {
     request.setRequestHeader('Content-Type', 'application/json');
 
     request.onload = function () {
+        console.log(request.responseText);
         if (request.status >= 200 && request.status < 300) {
             var movie = JSON.parse(request.responseText);
             document.getElementById('movie-name').value = movie.movie_name;

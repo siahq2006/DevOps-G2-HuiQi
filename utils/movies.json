@@ -8,5 +8,45 @@
     "release_date": "2001-11-22",
     "id": "1731140593188655",
     "duration": "25"
+  },
+  {
+    "movie_name": "Enola Holmes",
+    "poster_url": "https://upload.wikimedia.org/wikipedia/en/e/e6/Enola_Holmes_poster.jpeg",
+    "description": "While searching for her missing mother, intrepid teen Enola Holmes uses her sleuthing skills to outsmart big brother Sherlock and help a runaway lord.",
+    "genre": "1731145053702624",
+    "rating": "4.4",
+    "release_date": "2020-09-23",
+    "id": "1731145184869854",
+    "duration": "123"
+  },
+  {
+    "movie_name": "The Conjuring",
+    "poster_url": "https://m.media-amazon.com/images/M/MV5BMTM3NjA1NDMyMV5BMl5BanBnXkFtZTcwMDQzNDMzOQ@@._V1_QL75_UX190_CR0,0,190,281_.jpg",
+    "description": "Rod and Carolyn find their pet dog dead under mysterious circumstances and experience a spirit that harms their daughter Andrea. They finally call investigators who can help them get out of the mess.",
+    "genre": "1731140679188871",
+    "rating": "4.6",
+    "release_date": "2013-08-08",
+    "id": "1731145667781881",
+    "duration": "123"
+  },
+  {
+    "movie_name": "la la land",
+    "poster_url": "https://posters-uk.s3.eu-west-2.amazonaws.com/PRILON/1787253.jpg",
+    "description": "When Sebastian, a pianist, and Mia, an actress, follow their passion and achieve success in their respective fields, they find themselves torn between their love for each other and their careers.",
+    "genre": "1731159568234585",
+    "rating": "4.4",
+    "release_date": "2016-12-01",
+    "id": "1731159629611931",
+    "duration": "128"
+  },
+  {
+    "movie_name": "The Batman",
+    "poster_url": "https://m.media-amazon.com/images/M/MV5BMmU5NGJlMzAtMGNmOC00YjJjLTgyMzUtNjAyYmE4Njg5YWMyXkEyXkFqcGc@._V1_.jpg",
+    "description": "Batman is called to intervene when the mayor of Gotham City is murdered. Soon, his investigation leads him to uncover a web of corruption, linked to his own dark past.",
+    "genre": "1731140764478050",
+    "rating": "3.9",
+    "release_date": "2024-06-19",
+    "id": "1731160177458177",
+    "duration": "123"
   }
 ]
