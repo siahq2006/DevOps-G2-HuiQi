@@ -1,7 +1,21 @@
+// // Show the Add Movie form (modal)
+// function showAddMovieForm() {
+//     document.getElementById('add-movie-modal').style.display = 'flex';
+// }
+
 // Show the Add Movie form (modal)
 function showAddMovieForm() {
+    // Clear previous options from genre dropdown to avoid duplicates
+    const genreSelect = document.getElementById("genre-select1");
+    genreSelect.innerHTML = '';
+
+    // Load genres dynamically each time the form is displayed
+    loadGenres();
+
+    // Display the modal
     document.getElementById('add-movie-modal').style.display = 'flex';
 }
+
 
 // Hide the Add Movie form (modal)
 function hideAddMovieForm() {
@@ -27,7 +41,7 @@ function addMovie() {
     document.getElementById("message").removeAttribute("class");
 
     // List of fields to validate
-    var fields = ["movie-name", "poster-url", "description", "genre-select", "rating", "release-date", "duration"];
+    var fields = ["movie-name", "poster-url", "description", "genre-select1", "rating", "release-date", "duration"];
 
     // Loop through fields and check if they are empty
     fields.forEach(field => {
