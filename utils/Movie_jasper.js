@@ -1,0 +1,11 @@
+[
+  {
+      "movie_name": "Harry Potter and The Philosopher's Stone",
+      "poster_url": "https://m.media-amazon.com/images/M/MV5BNTU1MzgyMDMtMzBlZS00YzczLThmYWEtMjU3YmFlOWEyMjE1XkEyXkFqcGc@.V1.jpg",
+      "description": "Harry Potter, an eleven-year-old orphan, discovers that he is a wizard and is invited to study at Hogwarts. Even as he escapes a dreary life and enters a world of magic, he finds trouble awaiting him.",
+      "genre": "1731138990158828",
+      "rating": "4.8",
+      "release_date": "2001-11-22",
+      "id": "1731140593188655"
+  }
+]
