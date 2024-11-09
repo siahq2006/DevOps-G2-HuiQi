@@ -28,5 +28,15 @@
     "release_date": "2013-08-08",
     "duration": "112",
     "id": "1731163003722453"
+  },
+  {
+    "movie_name": "La La Land",
+    "poster_url": "https://m.media-amazon.com/images/M/MV5BMzUzNDM2NzM2MV5BMl5BanBnXkFtZTgwNTM3NTg4OTE@._V1_.jpg",
+    "description": "When Sebastian, a pianist, and Mia, an actress, follow their passion and achieve success in their respective fields, they find themselves torn between their love for each other and their careers.",
+    "genre": "1731163379477040",
+    "rating": "4.4",
+    "release_date": "2016-12-01",
+    "duration": "128",
+    "id": "1731163446032655"
   }
 ]
