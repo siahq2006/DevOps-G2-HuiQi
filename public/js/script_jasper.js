@@ -11,7 +11,7 @@ function viewMovies() {
 
             for (var i = 0; i < response.length; i++) {
                 html += '<div class="movie-item">' +
-                    '<a href="update-movie.html?id=' + response[i].id + '">' + 
+                    '<a href="update-movie.html?id=' + response[i].id + '">' +
                     '<img src="' + response[i].poster_url + '" alt="' + response[i].movie_name + '">' +
                     '</a>' +
                     '<div>' + response[i].movie_name + '</div>' +
@@ -46,6 +46,11 @@ function loadMovieForUpdate(movieId) {
             document.getElementById('release-date').value = movie.release_date;
             document.getElementById('duration').value = movie.duration;
             document.getElementById('poster-img').src = movie.poster_url;
+
+            loadGenres().then(() => { //function to load genres
+                document.getElementById('genre-select').value = movie.genre;
+            });
+
         } else {
             console.error('Error fetching movie details:', request.statusText);
             document.getElementById("message").innerHTML = 'Failed to load movie details. Please try again later.';
@@ -89,7 +94,7 @@ function updateMovie() {
 // Function to load movie details on the detail page
 function loadMovieDetails() {
     const movieId = new URLSearchParams(window.location.search).get('id');
-    
+
     if (!movieId) {
         document.getElementById("message").innerText = 'No movie ID provided.';
         return;
@@ -159,13 +164,13 @@ function validateForm(event) {
     const fields = [
         { id: 'movie-name', errorId: 'movie-name-error', message: 'Movie Name is required' },
         { id: 'poster-url-input', errorId: 'poster-url-error', message: 'Poster URL is required' },
-        { id: 'description', errorId: 'description-error', message: 'Description is required' },
         { id: 'genre-select', errorId: 'genre-error', message: 'Please select a genre' },
         { id: 'rating', errorId: 'rating-error', message: 'Rating is required' },
         { id: 'release-date', errorId: 'release-date-error', message: 'Release date is required' },
         { id: 'duration', errorId: 'duration-error', message: 'Duration is required' }
     ];
 
+    // Validate required fields
     fields.forEach(field => {
         const input = document.getElementById(field.id);
         const errorElement = document.getElementById(field.errorId);
@@ -177,36 +182,58 @@ function validateForm(event) {
         }
     });
 
+    // Validate description character length
+    const description = document.getElementById('description');
+    const descriptionError = document.getElementById('description-error');
+    const minDescriptionLength = 20; // Set the minimum number of characters
+    const maxDescriptionLength = 500; // Set the maximum number of characters
+
+    if (!description.value) {
+        descriptionError.textContent = 'Description is required';
+        isValid = false;
+    } else if (description.value.length < minDescriptionLength || description.value.length > maxDescriptionLength) {
+        descriptionError.textContent = `Description must be between ${minDescriptionLength} and ${maxDescriptionLength} characters.`;
+        isValid = false;
+    } else {
+        descriptionError.textContent = '';
+    }
+
     if (isValid) {
-        updateMovie();
+        updateMovie(); // Call the function to update the movie if all fields are valid
     }
 }
 
-// Function to load genres dynamically from the server
+// Function to load genres
 function loadGenres() {
-    var request = new XMLHttpRequest();
-    request.open('GET', '/loadGenres', true);
-    request.setRequestHeader('Content-Type', 'application/json');
+    return new Promise((resolve, reject) => {
+        var request = new XMLHttpRequest();
+        request.open('GET', '/loadGenres', true);
+        request.setRequestHeader('Content-Type', 'application/json');
 
-    request.onload = function () {
-        if (request.status >= 200 && request.status < 300) {
-            const genres = JSON.parse(request.responseText);
-            const genreSelect = document.getElementById('genre-select');
-            genreSelect.innerHTML = '<option value="">Select Genre</option>';
+        request.onload = function () {
+            if (request.status >= 200 && request.status < 300) {
+                const genres = JSON.parse(request.responseText);
+                const genreSelect = document.getElementById('genre-select');
+                genreSelect.innerHTML = '<option value="">Select Genre</option>'; // Reset options
 
-            genres.forEach(genre => {
-                const option = document.createElement('option');
-                option.value = genre.id;
-                option.textContent = genre.name;
-                genreSelect.appendChild(option);
-            });
-        } else {
-            console.error('Error fetching genres:', request.statusText);
-        }
-    };
+                genres.forEach(genre => {
+                    const option = document.createElement('option');
+                    option.value = genre.id; // Assuming each genre has a unique ID
+                    option.textContent = genre.name; // Display the genre name
+                    genreSelect.appendChild(option);
+                });
 
-    request.send();
+                resolve(); // Resolve after loading genres
+            } else {
+                console.error('Error fetching genres:', request.statusText);
+                reject();
+            }
+        };
+
+        request.send();
+    });
 }
+
 
 // Initialize functions on page load
 window.onload = function () {
