@@ -6,10 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home Screen</title>
     <link rel="stylesheet" href="./css/styles.css">
-
     <script src="./js/script_Neston.js"></script>
     <script src="./js/script_jasper.js"></script>
-
 </head>
 
 <body>
@@ -30,9 +28,6 @@
             <div class="buttons">
                 <button class="genre-btn" onclick="showAddGenreForm()">Add Genre</button>
                 <button class="movie-btn" onclick="showAddMovieForm()">Add Movie</button>
-                <select id="genre-select">
-                    <option value="">Select Genre</option>
-                </select>
             </div>
 
         </section>
@@ -46,11 +41,6 @@
                 <!-- Movies will be dynamically populated here -->
             </div>
         </section>
-
-
-    </main>
-
-    <script src="./js/script.js"></script>
 
         <!-- Genre List -->
         <div id="addGenreModal" class="genre-modal" style="display: none;"> <!-- Hidden by default -->
@@ -73,6 +63,5 @@
             </div>
         </div>
     </main>
-
 </body>
 </html>
