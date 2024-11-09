@@ -116,7 +116,7 @@ viewMovies();
 
 // Function to load genres from the server and populate the genre dropdown
 function loadGenres() {
-    const genreSelect = document.getElementById("genre-select1");
+    const genreSelect = document.getElementById("genre-select1");0
 
     // Fetch genres from the server
     fetch('/getGenres_HuiQi')
