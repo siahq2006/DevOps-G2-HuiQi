@@ -31,6 +31,10 @@
             <div class="buttons">
                 <button class="genre-btn" onclick="showAddGenreForm()">Add Genre</button>
                 <button class="movie-btn" onclick="showAddMovieForm()">Add Movie</button>
+                <select id="genre-select">
+                    <option value="">Select Genre</option>
+                </select>
+
             </div>
         </div>
 
@@ -50,7 +54,7 @@
             <input type="text" id="movie-name" placeholder="Movie Name" required>
             <input type="text" id="poster-url" placeholder="Poster URL" required>
             <textarea id="description" placeholder="Description" required></textarea>
-            <select id="genre-select" required>
+            <select id="genre-select1" required>
                 <option value="">Select Genre</option>
             </select>
             <input type="number" id="rating" placeholder="Rating (0-5)" required>

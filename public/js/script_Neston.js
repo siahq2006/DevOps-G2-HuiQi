@@ -16,7 +16,7 @@ function loadGenres_neston() {
         .then(data => { // Process the data
             const genreList = document.getElementById("genreList"); // Get the genre list element
             genreList.innerHTML = ''; // Clear the list first
-            
+
             data.forEach(genre => { // Loop through each genre
                 const listItem = document.createElement("div"); // Create a list item
                 listItem.classList.add("genre-item"); // Add a class to the list item
@@ -46,16 +46,16 @@ function confirmDeleteGenre(genreId, genreName) {
 
 // Delete Genre function
 function deleteGenre(genreId) {
-    fetch(`/delete-genre/${genreId}`, { method: 'DELETE' }) 
-        .then(response => response.json()) 
+    fetch(`/delete-genre/${genreId}`, { method: 'DELETE' })
+        .then(response => response.json())
         .then(data => { //
             if (data.success) { // Check if deletion was successful
                 alert(data.message); // Show success message
-                loadGenres();  // Reload genre list after deletion
+                loadGenres_neston();  // Reload genre list after deletion
             } else {
                 alert(data.message); // Show error message
             }
-        }) 
+        })
         .catch(error => console.error("Error deleting genre:", error)); // Log any errors to the console
 }
 
@@ -74,17 +74,17 @@ function addGenre() {
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ name: genreName })
     })
-    .then(response => response.json())
-    .then(res => { 
-        if (res.success) { // Check if genre was added successfully
-            loadGenres();  // Reload genre list
-            document.getElementById("genreInput").value = ""; // Clear input
-        } else {
-            alert("Failed to add genre: " + res.message); // Show error message
-        }
-    })
-    .catch(error => {
-        console.error("Error adding genre:", error); // Log any errors to the console
-        alert("Network error: Unable to add genre at this time. Please try again later."); // Show error message
-    });
+        .then(response => response.json())
+        .then(res => {
+            if (res.success) { // Check if genre was added successfully
+                loadGenres_neston();  // Reload genre list
+                document.getElementById("genreInput").value = ""; // Clear input
+            } else {
+                alert("Failed to add genre: " + res.message); // Show error message
+            }
+        })
+        .catch(error => {
+            console.error("Error adding genre:", error); // Log any errors to the console
+            alert("Network error: Unable to add genre at this time. Please try again later."); // Show error message
+        });
 }

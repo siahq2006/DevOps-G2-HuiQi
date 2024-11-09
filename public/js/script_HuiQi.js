@@ -17,7 +17,7 @@ function addMovie() {
     jsonData.movie_name = document.getElementById("movie-name").value.trim();
     jsonData.poster_url = document.getElementById("poster-url").value.trim();
     jsonData.description = document.getElementById("description").value.trim();
-    jsonData.genre = document.getElementById("genre-select").value.trim();
+    jsonData.genre = document.getElementById("genre-select1").value.trim();
     jsonData.rating = document.getElementById("rating").value.trim();
     jsonData.release_date = document.getElementById("release-date").value.trim();
     jsonData.duration = document.getElementById("duration").value.trim();
@@ -77,7 +77,7 @@ function addMovie() {
 }
 
 // Function to fetch and display the list of movies
-function viewMovies() {
+function viewMovies_HuiQi() {
     var response = '';
     var request = new XMLHttpRequest();
     request.open('GET', '/viewMovies_HuiQi', true);      // Fetch movie data from the server
@@ -116,7 +116,7 @@ viewMovies();
 
 // Function to load genres from the server and populate the genre dropdown
 function loadGenres() {
-    const genreSelect = document.getElementById("genre-select");
+    const genreSelect = document.getElementById("genre-select1");
 
     // Fetch genres from the server
     fetch('/getGenres_HuiQi')

@@ -28,8 +28,6 @@ function viewMoviesKai() {
 
 viewMoviesKai();
 
-
-
 async function loadGenresKai() {
     const genreSelect = document.getElementById("genre-select");
     genreSelect.innerHTML = '<option value="all">All</option>'; // Default option to show all movies
@@ -42,11 +40,17 @@ async function loadGenresKai() {
         const data = await response.json();
         console.log("Genres loaded:", data); // Debugging line
 
+        const existingIds = new Set(); // Set to track added genre IDs
+        Array.from(genreSelect.options).forEach(option => existingIds.add(option.value));
+
         data.forEach(genre => {
-            const option = document.createElement("option");
-            option.value = genre.id;
-            option.textContent = genre.name;
-            genreSelect.appendChild(option);
+            if (!existingIds.has(genre.id)) { // Only add if ID is not already in the Set
+                const option = document.createElement("option");
+                option.value = genre.id;
+                option.textContent = genre.name;
+                genreSelect.appendChild(option);
+                existingIds.add(genre.id); // Add to Set after adding the option
+            }
         });
     } catch (error) {
         console.error('Error loading genres:', error);
@@ -55,7 +59,11 @@ async function loadGenresKai() {
     }
 }
 
-
+// Load genres and set up event listener for genre selection
+window.onload = function () {
+    loadGenresKai(); // Load genres on page load
+    document.getElementById('genre-select').addEventListener('change', loadMoviesByGenre); // Trigger movie load on genre change
+};
 
 async function loadMoviesByGenre() {
     const id = document.getElementById('genre-select').value;
@@ -70,7 +78,7 @@ async function loadMoviesByGenre() {
         if (!response.ok) {
             throw new Error(`Failed to load movies: ${response.status} ${response.statusText}`);
         }
-        
+
         const movies = await response.json();
 
         const tableContent = document.getElementById('tableContent');
@@ -106,7 +114,7 @@ async function loadMoviesByGenre() {
 
 
 // Load genres and set up event listener for genre selection
-window.onload = function () {
-    loadGenresKai(); // Load genres on page load
-    document.getElementById('genre-select').addEventListener('change', loadMoviesByGenre); // Trigger movie load on genre change
-};
+// window.onload = function () {
+//     loadGenresKai(); // Load genres on page load
+//     document.getElementById('genre-select').addEventListener('change', loadMoviesByGenre); // Trigger movie load on genre change
+// };

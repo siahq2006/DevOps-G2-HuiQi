@@ -4,7 +4,7 @@ async function readJSON(filename) {
     try {
         const data = await fs.readFile(filename, 'utf8');
         return JSON.parse(data);
-    } catch (err) { console.error(err); throw err;}
+    } catch (err) { console.error(err); throw err; }
 }
 
 async function viewMoviesKai(req, res) {
@@ -21,31 +21,15 @@ async function getGenresKai(req, res) {
         const allGenres = await readJSON('utils/genre.json');
         return res.status(200).json(allGenres);
     } catch (error) {
-        return res.status(500).json({ message: error.message});
+        return res.status(500).json({ message: error.message });
     }
 }
-
-// async function viewMovieByGenre(req, res) {
-//     try {
-//         const genre_id = req.params.id;
-//         const allMovies = await readJSON('utils/genre.json');
-//         const movie = allMovies.find(movie => genre.id === id);
-
-//         if (movie) {
-//             return res.status(200).json(genre);
-//         } else {
-//             return res.status(404).json({ message: 'Movie not found!' });
-//         }
-//     } catch (error) {
-//         return res.status(500).json({ message: error.message });
-//     }
-// }
 
 async function viewMovieByGenre(req, res) {
     try {
         const genre = req.params.id;  // ID of the genre from the request URL
         const allMovies = await readJSON('utils/movies.json');  // Adjust file path if necessary
-        
+
         // Filter movies by genre
         const moviesByGenre = allMovies.filter(movie => movie.genre === genre);
 
