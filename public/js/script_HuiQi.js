@@ -80,7 +80,7 @@ function addMovie() {
 function viewMovies() {
     var response = '';
     var request = new XMLHttpRequest();
-    request.open('GET', '/viewMovies', true);      // Fetch movie data from the server
+    request.open('GET', '/viewMovies_HuiQi', true);      // Fetch movie data from the server
     request.setRequestHeader('Content-Type', 'application/json');
 
     // Handle the response once the request completes
@@ -119,7 +119,7 @@ function loadGenres() {
     const genreSelect = document.getElementById("genre-select");
 
     // Fetch genres from the server
-    fetch('/getGenres')
+    fetch('/getGenres_HuiQi')
         .then(response => {
             if (!response.ok) {
                 throw new Error(`Failed to load genres: ${response.status} ${response.statusText}`);

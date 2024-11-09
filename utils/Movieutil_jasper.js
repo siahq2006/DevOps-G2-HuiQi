@@ -1,4 +1,4 @@
-const { Movie } = require('../models/Movie_jasper.js'); // Import the Movie class
+const { Movie } = require('../models/Movies.js'); // Import the Movie class
 const fs = require('fs').promises; // Import the promises version of the fs module
 
 async function readJSON(filename) { // Function to read JSON file
@@ -34,7 +34,7 @@ async function loadGenres(req, res) { // Function to load genres
 
 async function viewMovies(req, res) { // Function to view all movies
     try {
-        const allMovies = await readJSON('utils/Movie_jasper.js');
+        const allMovies = await readJSON('utils/movies.json');
         return res.status(200).json(allMovies);
     } catch (error) {
         return res.status(500).json({ message: error.message });
@@ -44,7 +44,7 @@ async function viewMovies(req, res) { // Function to view all movies
 async function viewMovieById(req, res) { // Function to view movie by id
     try {
         const id = req.params.id;
-        const allMovies = await readJSON('utils/Movie_jasper.js');
+        const allMovies = await readJSON('utils/movies.json');
         const movie = allMovies.find(movie => movie.id === id);
 
         if (movie) {
@@ -62,7 +62,7 @@ async function editMovie(req, res) { // Function to edit movie by id
         const id = req.params.id;
         const { movie_name, poster_url, description, genre, rating, release_date, duration } = req.body;
 
-        const allMovies = await readJSON('utils/Movie_jasper.js');
+        const allMovies = await readJSON('utils/movies.json');
         let modified = false;
 
         for (let i = 0; i < allMovies.length; i++) {
@@ -85,7 +85,7 @@ async function editMovie(req, res) { // Function to edit movie by id
         }
 
         if (modified) {
-            await writeJSON(allMovies, 'utils/Movie_jasper.js');
+            await writeJSON(allMovies, 'utils/movies.json');
             return res.status(200).json({ message: 'Movie modified successfully!' });
         } else {
             return res.status(404).json({ message: 'Movie not found, unable to modify!' });
@@ -98,13 +98,13 @@ async function editMovie(req, res) { // Function to edit movie by id
 async function deleteMovie(req, res) { // Function to delete movie by id
     try {
         const id = req.params.id;
-        const allMovies = await readJSON('utils/Movie_jasper.js');
+        const allMovies = await readJSON('utils/movies.json');
 
         const index = allMovies.findIndex(movie => movie.id === id);
 
         if (index !== -1) {
             allMovies.splice(index, 1);
-            await writeJSON(allMovies, 'utils/Movie_jasper.js');
+            await writeJSON(allMovies, 'utils/movies.json');
             return res.status(200).json({ message: 'Movie deleted successfully!' });
         } else {
             return res.status(404).json({ message: 'Movie not found, unable to delete!' });
@@ -114,4 +114,4 @@ async function deleteMovie(req, res) { // Function to delete movie by id
     }
 }
 
-module.exports = { readJSON, writeJSON, viewMovies, viewMovieById, editMovie, deleteMovie, loadGenres   };
+module.exports = { readJSON, writeJSON, viewMovies, viewMovieById, editMovie, deleteMovie, loadGenres };

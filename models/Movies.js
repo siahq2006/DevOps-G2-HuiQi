@@ -9,4 +9,4 @@ class Movie {
         this.id = timestamp + "" + random.toString().padStart(3, '0');
     }
 }
-module.exports = { Resource };
+module.exports = { Movie };

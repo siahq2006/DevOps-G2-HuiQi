@@ -15,10 +15,10 @@ app.use(bodyParser.json());                                   // Parses incoming
 app.use(express.static("./public"));                          // Serve static files from the "public" directory
 
 // Import the functions to handle movie-related routes
-const { addMovie, viewMovies, getGenres } = require('./utils/MovieUtils_HuiQi');
+const { addMovie, viewMovies_HuiQi, getGenres_HuiQi } = require('./utils/MovieUtils_HuiQi');
 app.post('/addMovie', addMovie);
-app.get('/viewMovies', viewMovies);
-app.get('/getGenres', getGenres);
+app.get('/viewMovies_HuiQi', viewMovies_HuiQi);
+app.get('/getGenres_HuiQi', getGenres_HuiQi);
 var express = require('express');
 var bodyParser = require("body-parser");
 

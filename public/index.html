@@ -29,7 +29,7 @@
         <div class="header-row">
             <h1 class="header-title">Movies</h1>
             <div class="buttons">
-                <button class="genre-btn">Add Genre</button>
+                <button class="genre-btn" onclick="showAddGenreForm()">Add Genre</button>
                 <button class="movie-btn" onclick="showAddMovieForm()">Add Movie</button>
             </div>
         </div>
@@ -44,7 +44,7 @@
     </main>
 
     <!-- Add Movie Modal -->
-    <div id="add-movie-modal" class="modal-overlay">
+    <div id="add-movie-modal" class="modal-overlay" style="display: none">
         <div class="modal-content">
             <h2>Add Movie</h2>
             <input type="text" id="movie-name" placeholder="Movie Name" required>

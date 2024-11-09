@@ -1,5 +1,5 @@
 // Import the Movie model and fs.promises for file handling
-const { Movie } = require('../models/Movie');
+const { Movie } = require('../models/Movies.js');
 const fs = require('fs').promises;
 
 // Reads a JSON file and parses it into a JavaScript object
@@ -58,7 +58,7 @@ async function addMovie(req, res) {
 
 
 // Endpoint to fetch all movies from the JSON file
-async function viewMovies(req, res) {
+async function viewMovies_HuiQi(req, res) {
     try {
         const allMovies = await readJSON('utils/movies.json');
         return res.status(200).json(allMovies);
@@ -69,7 +69,7 @@ async function viewMovies(req, res) {
 
 
 // Endpoint to fetch all Genres from the JSON file
-async function getGenres(req, res) {
+async function getGenres_HuiQi(req, res) {
     try {
         const allGenres = await readJSON('utils/genre.json');
         return res.status(200).json(allGenres);
@@ -81,5 +81,5 @@ async function getGenres(req, res) {
 
 // Export the functions to be used in routes
 module.exports = {
-    readJSON, writeJSON, addMovie, viewMovies, getGenres
+    readJSON, writeJSON, addMovie, viewMovies_HuiQi, getGenres_HuiQi
 }
