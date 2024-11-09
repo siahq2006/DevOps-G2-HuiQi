@@ -78,6 +78,7 @@ function addGenre() {
         .then(res => {
             if (res.success) { // Check if genre was added successfully
                 loadGenres_neston();  // Reload genre list
+                loadGenresKai(); // Reload genre dropdown
                 document.getElementById("genreInput").value = ""; // Clear input
             } else {
                 alert("Failed to add genre: " + res.message); // Show error message

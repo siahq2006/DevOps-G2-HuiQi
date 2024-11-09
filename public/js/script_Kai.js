@@ -28,6 +28,8 @@ function viewMoviesKai() {
 
 viewMoviesKai();
 
+
+
 async function loadGenresKai() {
     const genreSelect = document.getElementById("genre-select");
     genreSelect.innerHTML = '<option value="all">All</option>'; // Default option to show all movies
@@ -40,17 +42,11 @@ async function loadGenresKai() {
         const data = await response.json();
         console.log("Genres loaded:", data); // Debugging line
 
-        const existingIds = new Set(); // Set to track added genre IDs
-        Array.from(genreSelect.options).forEach(option => existingIds.add(option.value));
-
         data.forEach(genre => {
-            if (!existingIds.has(genre.id)) { // Only add if ID is not already in the Set
-                const option = document.createElement("option");
-                option.value = genre.id;
-                option.textContent = genre.name;
-                genreSelect.appendChild(option);
-                existingIds.add(genre.id); // Add to Set after adding the option
-            }
+            const option = document.createElement("option");
+            option.value = genre.id;
+            option.textContent = genre.name;
+            genreSelect.appendChild(option);
         });
     } catch (error) {
         console.error('Error loading genres:', error);
@@ -59,14 +55,7 @@ async function loadGenresKai() {
     }
 }
 
-// Load genres when the DOM is ready
-document.addEventListener('DOMContentLoaded', loadGenresKai);
 
-// Load genres and set up event listener for genre selection
-// window.onload = function () {
-//     loadGenresKai(); // Load genres on page load
-//     document.getElementById('genre-select').addEventListener('change', loadMoviesByGenre); // Trigger movie load on genre change
-// };
 
 async function loadMoviesByGenre() {
     const id = document.getElementById('genre-select').value;
@@ -111,3 +100,13 @@ async function loadMoviesByGenre() {
         document.getElementById("message").innerText = 'Failed to load movies.';
     }
 }
+
+
+
+
+
+// Load genres and set up event listener for genre selection
+window.onload = function () {
+    loadGenresKai(); // Load genres on page load
+    document.getElementById('genre-select').addEventListener('change', loadMoviesByGenre); // Trigger movie load on genre change
+};

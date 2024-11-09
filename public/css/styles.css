@@ -28,6 +28,7 @@ body {
 
 * {
     box-sizing: border-box;
+
 }
 
 
@@ -46,7 +47,6 @@ body {
     display: flex;
     gap: 20px;
 }
-
 
 /* Styling for the navigation icons */
 
@@ -169,12 +169,12 @@ textarea {
     background-color: #555;
 }
 
-
+/* 
 .genre-dropdown {
     margin-left: 10px;
     padding: 8px;
     font-size: 16px;
-}
+} */
 
 /* Modal form styling - Add Movie */
 .modal-content {
