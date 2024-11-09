@@ -1,25 +1,5 @@
 [
     {
-
-        "name": "Horror",
-        "id": "1"
-    },
-    {
-        "name": "Action",
-        "id": "2"
-    },
-    {
-        "name": "Family",
-        "id": "3"
-    },
-    {
-        "name": "Sci-fi",
-        "id": "4"
-    },
-    {
-        "name": "Romance",
-        "id": "5"
-
         "name": "Adventure",
         "id": "1730795315598631"
     },
@@ -46,6 +26,5 @@
     {
         "name": "Horror",
         "id": "1730992563021514"
-
     }
 ]
