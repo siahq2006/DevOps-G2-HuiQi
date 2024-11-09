@@ -12,6 +12,13 @@ app.use(bodyParser.json());
 
 app.use(express.static("./public"));
 
+
+
+const {viewMoviesKai, getGenresKai, viewMovieByGenre} = require('./utils/MovieUtil_Kai');
+app.get('/viewMoviesKai', viewMoviesKai);
+app.get('/getGenresKai', getGenresKai);
+app.get('/viewMovieByGenre/:id', viewMovieByGenre);
+
 const { addGenre, deleteGenre, getGenres } = require('./utils/genreUtil_Neston')
 app.delete('/delete-genre/:id', deleteGenre);
 app.post('/add-genre', addGenre);
@@ -23,6 +30,7 @@ app.get('/viewMovies', viewMovies); // view all movies
 app.get('/viewMovies/:id', viewMovieById); // view movie by id
 app.put ('/editMovie/:id', editMovie); // edit movie by id
 app.delete('/deleteMovie/:id', deleteMovie); // delete movie by id
+
 
 app.get('/', (req, res) => {
     res.sendFile(__dirname + "/public/" + startPage);
