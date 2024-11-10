@@ -52,6 +52,7 @@ function deleteGenre(genreId) {
             if (data.success) { // Check if deletion was successful
                 alert(data.message); // Show success message
                 loadGenres_neston();  // Reload genre list after deletion
+                loadGenresKai(); // Reload genre dropdown after deletion
             } else {
                 alert(data.message); // Show error message
             }

@@ -57,6 +57,14 @@ function addMovie() {
         }
     });
 
+    // if description is less than 10 characters, show alert and return
+    if (jsonData.description.length < 10) {
+        alert("Description must be at least 10 characters long!"); // Notification for short description
+        document.getElementById("message").innerHTML = 'Description must be at least 10 characters long!';
+        document.getElementById("message").setAttribute("class", "text-danger");
+        return;
+    }
+
     // If any fields are empty, show alert and return
     if (!allFieldsFilled) {
         alert("Please fill out all required fields!"); // Notification for missing fields
