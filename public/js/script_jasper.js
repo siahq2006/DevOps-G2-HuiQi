@@ -185,7 +185,7 @@ function validateForm(event) {
     // Validate description character length
     const description = document.getElementById('description');
     const descriptionError = document.getElementById('description-error');
-    const minDescriptionLength = 20; // Set the minimum number of characters
+    const minDescriptionLength = 10; // Set the minimum number of characters
     const maxDescriptionLength = 500; // Set the maximum number of characters
 
     if (!description.value) {
