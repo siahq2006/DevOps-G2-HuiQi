@@ -178,5 +178,15 @@
     "release_date": "2022-05-06",
     "duration": "126",
     "id": "1731243951346522"
+  },
+  {
+    "movie_name": "Ghostbusters",
+    "poster_url": "https://m.media-amazon.com/images/M/MV5BZjNhMzU5MjgtY2VhMC00NzZmLTk1YTEtMDc5OGU1OWJiMTE4XkEyXkFqcGc@._V1_FMjpg_UX1000_.jpg",
+    "description": "Paranormal enthusiasts Abby, Erin, Jillian and Patty set out to capture ghosts when they realise that someone is attempting to cause an apocalypse by summoning ghosts in the city of New York.",
+    "genre": "1732520736755439",
+    "rating": "2.5",
+    "release_date": "2016-07-14",
+    "duration": "116",
+    "id": "1732521040591865"
   }
 ]
