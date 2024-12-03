@@ -311,9 +311,9 @@ textarea {
 
 /* Error Message Styling */
 .error-message {
-    color: red;
-    font-size: 12px;
+    font-size: 0.9rem;
     margin-top: 5px;
+    color: red;
 }
 
 
