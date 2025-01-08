@@ -5,7 +5,11 @@
   "scripts": {
     "backend-test": "nyc --nycrc-path .nycrc-backend mocha",
     "frontend-instrument": "xcopy public instrumented /I /E /Y & nyc instrument public instrumented",
-    "frontend-test": "rmdir -r .nyc_output & nyc --nycrc-path .nycrc-frontend cypress run"
+    "frontend-test": "rmdir -r .nyc_output & nyc --nycrc-path .nycrc-frontend cypress run",
+    "test:chrome": "cypress run --browser chrome",
+    "test:firefox": "cypress run --browser firefox",
+    "test:edge": "cypress run --browser edge",
+    "test:electron": "cypress run --browser electron"
   },
   "keywords": [],
   "author": "",
@@ -16,13 +20,13 @@
     "body-parser": "^1.20.3",
     "chai": "^4.3.4",
     "chai-http": "^4.3.0",
-    "cypress": "^13.16.0",
     "express": "^4.21.1",
     "fs": "^0.0.1-security",
     "mocha": "^10.8.2",
     "nyc": "^17.1.0"
   },
   "devDependencies": {
+    "cypress": "^13.16.0",
     "sinon": "^19.0.2"
   }
 }

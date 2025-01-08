@@ -77,7 +77,6 @@ describe('Add Movies Frontend', () => {
 
     // Intercept the genres API call
     cy.intercept('GET', '/getGenres_HuiQi', (req) => {
-      // Optional: Mock the server response here if testing error scenarios
       // req.reply({ statusCode: 500, body: { error: "Internal Server Error" } });
     }).as('getGenres');
 
