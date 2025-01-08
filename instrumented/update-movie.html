@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Update Movie</title>
+    <link rel="stylesheet" href="./css/styles.css">
+    <script src="./js/script_jasper.js" defer></script>
+</head>
+
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="logo">WatchVault</div>
+        <div class="nav-icons">
+            <a href="index.html"><img src="./images/icons/home.png" alt="Home Icon" class="home-icon"></a>
+            <a href="#"><img src="./images/icons/user.png" alt="User Icon" class="user-icon"></a>
+        </div>
+    </nav>
+
+    <!-- Main Content Section -->
+    <main>
+        <section class="header">
+            <h1>Movie</h1>
+        </section>
+
+        <!-- Message Area -->
+        <div id="message"></div>
+
+        <!-- Movie Update Section -->
+        <div class="container">
+            <div class="movie-details">
+                <div class="poster-container">
+                    <img id="poster-img" src="https://example.com/poster.jpg" alt="Movie Poster" class="poster">
+                </div>
+                <div class="details-container">
+                    <form id="update-form" onsubmit="validateForm(event)">
+                        <label for="movie-name">Movie Name:</label>
+                        <input type="text" id="movie-name">
+                        <span class="error-message" id="movie-name-error"></span>
+
+                        <label for="poster-url-input">Poster URL:</label>
+                        <input type="text" id="poster-url-input">
+                        <span class="error-message" id="poster-url-error"></span>
+
+                        <label for="description">Description:</label>
+                        <textarea id="description" rows="4"></textarea>
+                        <span class="error-message" id="description-error"></span>
+
+                        <label for="genre-select">Genre:</label>
+                        <select id="genre-select">
+                            <option value="">Select Genre</option>
+                        </select>
+                        <span class="error-message" id="genre-error"></span>
+
+                        <label for="rating">Rating:</label>
+                        <input type="number" id="rating" min="0" max="10" step="0.1">
+                        <span class="error-message" id="rating-error"></span>
+
+                        <label for="release-date">Release Date:</label>
+                        <input type="date" id="release-date">
+                        <span class="error-message" id="release-date-error"></span>
+
+                        <label for="duration">Duration (minutes):</label>
+                        <input type="number" id="duration">
+                        <span class="error-message" id="duration-error"></span>
+
+                        <div class="button-container">
+                            <button type="submit" class="update-button">Update Movie</button>
+                            <button type="button" class="delete-button" onclick="confirmDelete()">Delete Movie</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </main>
+</body>
+
+</html>
