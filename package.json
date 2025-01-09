@@ -22,11 +22,11 @@
     "chai-http": "^4.3.0",
     "express": "^4.21.1",
     "fs": "^0.0.1-security",
-    "mocha": "^10.8.2",
-    "nyc": "^17.1.0"
+    "mocha": "^10.8.2"
   },
   "devDependencies": {
-    "cypress": "^13.16.0",
+    "cypress": "^13.17.0",
+    "nyc": "^17.1.0",
     "sinon": "^19.0.2"
   }
 }
