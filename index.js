@@ -3,7 +3,6 @@ var express = require('express');               // Express framework for routing
 var bodyParser = require("body-parser");        // Body parser to parse incoming request bodies
 var app = express();                            // Initialize the Express application
 
-
 // Define port for the server, using an environment variable or default to 5050
 const PORT = process.env.PORT || 5050
 
@@ -14,6 +13,9 @@ var startPage = "index.html";
 app.use(bodyParser.urlencoded({ extended: true }));           // Parses incoming request with URL-encoded payloads
 app.use(bodyParser.json());                                   // Parses incoming request with JSON payloads
 app.use(express.static("./public"));                          // Serve static files from the "public" directory
+
+const statusMonitor = require('express-status-monitor');
+app.use(statusMonitor());
 
 // Import the functions to handle movie-related routes
 const { addMovie, viewMovies_HuiQi, getGenres_HuiQi } = require('./utils/MovieUtils_HuiQi');
