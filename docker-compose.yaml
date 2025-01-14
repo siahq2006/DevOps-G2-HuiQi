@@ -3,7 +3,7 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
-    image: siahq2006/rms-docker-watchvault-img:latest
+    image: siahq2006/rms-docker-watchvault-img:v3
     container_name: rms-docker-container-watchvault
     ports:
       - "8000:5050"
